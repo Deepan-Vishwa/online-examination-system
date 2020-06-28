@@ -1,0 +1,84 @@
+html,body{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+body{
+ background-color: aliceblue;
+
+}
+.navbarbg{
+    background-color: darkblue;
+}
+
+.formcontainer{
+    margin-top: 9%;
+    width: 25%;
+}
+.h1title{
+    color: darkblue;
+    font-family: 'Playfair Display', serif;
+    font-size:  3vw;
+}
+.hover:hover{
+    background-color: blue;
+}
+.animation {
+    -webkit-animation-name: move;
+            animation-name: move;
+    -webkit-animation-duration: .4s;
+            animation-duration: .4s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-animation-delay: 2s;
+            animation-delay: 2s;
+  }
+  .a1 {
+    -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+  }
+  .a2 {
+    -webkit-animation-delay: 0.6s;
+            animation-delay: 0.6s;
+  }
+  .a3 {
+    -webkit-animation-delay: 0.7s;
+            animation-delay: 0.7s;
+  }
+  .a4 {
+    -webkit-animation-delay: 0.8s;
+            animation-delay: 0.8s;
+  }
+
+  .a5 {
+    -webkit-animation-delay: 0.9s;
+            animation-delay: 0.9s;
+  }
+  .a6 {
+    -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+  }
+  @keyframes move {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transform: translateY(-40px);
+              transform: translateY(-40px);
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
+@media screen and (max-width: 800px) {
+    .h1title{
+        font-size: 5.5vw;
+        font-weight: bold;
+    }
+    .formcontainer{
+        margin-top: 20%;
+        width: 90%;
+    }
+}
