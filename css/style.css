@@ -15,6 +15,16 @@ body{
     margin-top: 9%;
     width: 25%;
 }
+.cardheaderbg{
+
+  background-color: darkblue ;
+  color: white !important;
+}
+.border-darkblue{
+
+  border-left: 1px solid darkblue;
+
+}
 .h1title{
     color: darkblue;
     font-family: 'Playfair Display', serif;
@@ -81,4 +91,12 @@ body{
         margin-top: 20%;
         width: 90%;
     }
+    .border-darkblue{
+
+      border:none;
+    
+    }
+  .fontsize{
+    font-size: 3vw;
+  }
 }
