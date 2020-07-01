@@ -16,7 +16,7 @@ body{
     width: 25%;
 }
 .helpformcontainer{
-  margin-top: 2%;
+  margin-top: 3%;
   width: 50%;
 }
 .cardheaderbg{
@@ -76,6 +76,18 @@ body{
     -webkit-animation-delay: 1.1s;
             animation-delay: 1.1s;
   }
+  .a8{
+    -webkit-animation-delay: 1.2s;
+            animation-delay: 1.2s;
+  }
+  .a9{
+    -webkit-animation-delay: 1.3s;
+            animation-delay: 1.3s;
+  }
+  .a10 {
+    -webkit-animation-delay: 1.4s;
+            animation-delay: 1.4s;
+  }
   @keyframes move {
     0% {
       opacity: 0;
@@ -100,7 +112,7 @@ body{
         width: 90%;
     }
     .helpformcontainer{
-      margin-top: 15%;
+      margin-top: 10%;
         width: 90%;
     }
     .border-darkblue{
