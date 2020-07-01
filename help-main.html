@@ -13,6 +13,7 @@
     <title>Online Examination System - Login</title>
 </head>
 <body>
+   
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark navbarbg animation a1" id="nav">
             <a class="navbar-brand" style="font-family: 'Baloo Bhai 2', cursive;" href="#">KDSG</a>
@@ -25,26 +26,46 @@
                   <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="help-login.html">Help</a>
+                  <a class="nav-link" href="#">Help</a>
                 </li>
               </ul>
             </div>
           </nav>
     </header>
-<div class="container mt-3 d-flex justify-content-center align-items-center">
-    <h1 class="h1title animation a2" id="title">KDSG Examination System</h1>
-</div>
-        <div class="container formcontainer" >
-         <h1 style="color: darkblue; font-weight: 600;" class="animation a3">Login</h1>
-         <form>
-            <div class="form-group">
-              <input type="email" class="form-control animation a4" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+    <div class="container mt-3 d-flex justify-content-center align-items-center">
+      <h1 class="h1title animation a2" id="title">KDSG Examination System</h1>
+  </div>
+    <div class="container helpformcontainer" >
+      <h4 style="color: darkblue; font-weight: 600;" class="animation a2">We're Here To Help You!!!</h4>
+                 <form>
+                    
+                    <div class="form-group ">
+                      <label for="exampleFormControlSelect1" class="animation a5">Common issues</label>
+                      <select class="form-control animation a6" id="exampleFormControlSelect1">
+                        <option>issues</option>
+                        <option>Can't view my score</option>
+                        <option>issues in starting the test</option>
+                        <option>Can't view my test details</option>
+                      </select>
+                    </div>
+                   <div class="form-group ">
+                        <label for="exampleFormControlTextarea1 font-family-Time-New_roman" class="animation a6">Other issue
+                        </label>
+                        <textarea class="form-control animation a7" id="exampleFormControlTextarea1" rows="2"></textarea>
+                    </div>
+                    <div class="form-group ">
+                      <label for="exampleFormControlTextarea1 font-family-Time-New_roman" class="animation a8">Problem Description
+                      </label>
+                      <textarea class="form-control animation a9" id="exampleFormControlTextarea1" rows="2"></textarea>
+                    </div>
+                  </form>  
+                  <div class="container mt-3 d-flex justify-content-center align-items-center">
+                       <a href="#" class="btn btn-primary navbarbg w-50 animation a10">Send</a>
+                  </div>
             </div>
-            <div class="form-group">
-              <input type="password" class="form-control  animation a5" id="exampleInputPassword1" placeholder="Password">
-            </div>
-                <button type="submit" class="btn navbarbg text-white w-100 animation a6 hover">Login</button>
-          </form>
-        </div>
+          </div>
+    </div>
+   
 </body>
 </html>
