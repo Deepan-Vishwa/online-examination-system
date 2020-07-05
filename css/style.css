@@ -19,6 +19,16 @@ body{
   margin-top: 3%;
   width: 50%;
 }
+.alert-red{
+  background: #FF3333;
+  color: white;
+}
+.alert-yellow
+{
+  background: #FFCC00;
+  color: black;
+
+}
 .cardheaderbg{
 
   background-color: darkblue ;

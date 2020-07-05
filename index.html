@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/3535cd8d33.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -36,15 +37,23 @@
 </div>
         <div class="container formcontainer" >
          <h1 style="color: darkblue; font-weight: 600;" class="animation a3">Login</h1>
-         <form>
+         <form action="loginval.php" method="post" id="loginform">
+
+          <div class="alert alert-red collapse" id="alert" name="alert" aria-hidden="true">
+            
+          </div>
+         
             <div class="form-group">
-              <input type="email" class="form-control animation a4" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="email" class="form-control animation a4" id="emailid" name="emailid" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
             <div class="form-group">
-              <input type="password" class="form-control  animation a5" id="exampleInputPassword1" placeholder="Password">
+              <input type="password" class="form-control  animation a5" id="password" name="password" placeholder="Password">
             </div>
-                <button type="submit" class="btn navbarbg text-white w-100 animation a6 hover">Login</button>
+                <button type="button" class="btn navbarbg text-white w-100 animation a6 hover" name="submit" id="btnFetch">Login</button>
+                
           </form>
         </div>
+        <script src="login.js"></script>
+
 </body>
 </html>
