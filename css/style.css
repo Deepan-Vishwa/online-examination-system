@@ -5,6 +5,7 @@ html,body{
 }
 body{
  background-color: aliceblue;
+ 
 
 }
 .navbarbg{
@@ -40,14 +41,29 @@ body{
 
 }
 .h1title{
+  
     color: darkblue;
     font-family: 'Playfair Display', serif;
     font-size:  3vw;
 }
+
+.startbtn{
+  width:25%
+}
+.norecords{
+  font-size: 3vw;
+  margin-top:3%
+}
+.image{
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+
 .subtitle{
   color: rgb(9, 9, 65);
     font-family: 'Playfair Display', serif;
     font-size:  2.5vw;
+
 }
 .hover:hover{
     background-color: blue;
@@ -155,6 +171,25 @@ body{
     }
   .fontsize{
     font-size: 3vw;
+  
   }
+
+  .startbtn{
+    width:90%
+  }
+
+   .norecords{
+    margin-top:3%;
+    font-size: 5.5vw;
+}
+   .image{
+    margin-top: 10%;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+}
+
+
  
 }
+
