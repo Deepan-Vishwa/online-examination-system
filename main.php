@@ -17,12 +17,13 @@ if (!isset($_SESSION["userid"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Lobster&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&family=Playfair+Display&display=swap" rel="stylesheet">     
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+    
     <title>Online Examination System - Login</title>
 </head>
 <body>
@@ -123,7 +124,7 @@ while($row = mysqli_fetch_assoc($result))
                    
        
                   <div class="container mt-3 d-flex justify-content-center align-items-center">
-                    <a href="#" class="btn cardheaderbg text-white mt-2 float-right startbtn" id="online_exam_id">Start</a>
+                    <button class="btn cardheaderbg text-white mt-2 float-right startbtn" id="online_exam_id">Start</button>
                 </div>
             </div>
           </div>
@@ -137,6 +138,25 @@ while($row = mysqli_fetch_assoc($result))
         ?>
           
     </div> 
-
+    <div class="modal fade" id="alert-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Alert</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             Sorry You cannot Attend Your exam in Mobile !!
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn navbarbg text-white" data-dismiss="modal">Understood</button>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="./js/test-instruct.js"></script>
 </body>
 </html>
