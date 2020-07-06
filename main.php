@@ -1,4 +1,6 @@
-<?php include 'config.php';?>
+<?php include 'config.php';
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,10 +27,10 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="main.php">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
+                    <a class="nav-link" href="profile.html">Profile</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Results</a>
@@ -57,7 +59,7 @@ as starting_time,online_exam.marks_per_wrong_answer,DATE_FORMAT(online_exam.end_
  as ending_time,exam_enrollment.*,students.student_id,total_questions*marks_per_right_answer AS maximum_marks 
  from online_exam INNER JOIN exam_enrollment ON online_exam.online_exam_id=exam_enrollment.online_exam_id INNER JOIN 
 students on exam_enrollment.section=students.student_section 
-AND exam_enrollment.year=students.student_year WHERE students.student_id=1 AND online_exam.online_exam_status='active';
+AND exam_enrollment.year=students.student_year WHERE students.student_id=$_SESSION["userid"] AND online_exam.online_exam_status='active';
 "; 
 
 $result = mysqli_query($conn, $query); 
@@ -65,8 +67,8 @@ $result = mysqli_query($conn, $query);
 if(mysqli_num_rows($result)===0) 
 {
 
-  echo'<p class="text-center  animation a3 " style="margin-top:5%"><img src="logo_transparent.png" width=200px,height=200px ></img></p>';
-  echo'<h1 class="text-center  animation a4 " style="margin-top:3%">
+  echo'<p class="text-center  animation a3 " style="margin-top:5%"><img class="image" src="logo_transparent.png"></img></p>';
+  echo'<h1 class=" norecords text-center  animation a4 ">
   
   No Exams Alloted For You !!!!!
 
@@ -113,7 +115,7 @@ while($row = mysqli_fetch_assoc($result))
                    
        
                   <div class="container mt-3 d-flex justify-content-center align-items-center">
-                    <a href="#" class="btn cardheaderbg text-white mt-2 float-right w-25" id="online_exam_id">Start</a>
+                    <a href="#" class="btn cardheaderbg text-white mt-2 float-right startbtn" id="online_exam_id">Start</a>
                 </div>
             </div>
           </div>
