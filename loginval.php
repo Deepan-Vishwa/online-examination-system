@@ -10,7 +10,7 @@ $row = $result->fetch_assoc();
 if($result->num_rows == 1)
 {
   session_start();
-  $_SESSION["userid"] = 1;
+  $_SESSION["userid"] = $row['student_id'];
   
   echo "1";
 }

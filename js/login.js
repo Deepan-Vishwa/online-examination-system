@@ -21,7 +21,7 @@ $(document).ready(function() {
          {
            
             if (data === '1') {
-            window.location.href="main.html";
+            window.location.href="main.php";
          }
             else {
                $("#alert").removeClass().attr("hidden",false).toggleClass(" alert alert-red").html("<i class='fas fa-exclamation-triangle'></i> Invalid user Credentials!");

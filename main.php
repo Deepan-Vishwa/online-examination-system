@@ -1,5 +1,13 @@
 <?php include 'config.php';
 session_start();
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+
+if (!isset($_SESSION["userid"])) {
+    header('Location: index.html');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +67,7 @@ as starting_time,online_exam.marks_per_wrong_answer,DATE_FORMAT(online_exam.end_
  as ending_time,exam_enrollment.*,students.student_id,total_questions*marks_per_right_answer AS maximum_marks 
  from online_exam INNER JOIN exam_enrollment ON online_exam.online_exam_id=exam_enrollment.online_exam_id INNER JOIN 
 students on exam_enrollment.section=students.student_section 
-AND exam_enrollment.year=students.student_year WHERE students.student_id=$_SESSION["userid"] AND online_exam.online_exam_status='active';
+AND exam_enrollment.year=students.student_year WHERE students.student_id=".$_SESSION['userid']." AND online_exam.online_exam_status='active';
 "; 
 
 $result = mysqli_query($conn, $query); 
@@ -67,7 +75,7 @@ $result = mysqli_query($conn, $query);
 if(mysqli_num_rows($result)===0) 
 {
 
-  echo'<p class="text-center  animation a3 " style="margin-top:5%"><img class="image" src="logo_transparent.png"></img></p>';
+  echo'<p class="text-center  animation a3 " style="margin-top:5%"><img class="image" src="./assets/logo_transparent.png"></img></p>';
   echo'<h1 class=" norecords text-center  animation a4 ">
   
   No Exams Alloted For You !!!!!
