@@ -11,3 +11,13 @@ body{
 .navbarbg{
     background-color: darkblue;
 }
+.navigation-button{
+    border-radius: 50%;
+    height:52px ; 
+    width:52px;
+    margin-bottom: 7px !important;
+    margin-right:5px;
+    font-size: 1.4vw;
+    font-weight: bold;
+    
+}
