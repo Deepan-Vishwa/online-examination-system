@@ -1,9 +1,9 @@
 <?php 
 include 'config.php';
 
-$question_query = "SELECT * FROM question WHERE online_exam_id = 2";
+$question_query = "SELECT * FROM question WHERE online_exam_id = 3";
 $options_query = "select options.question_id,options.option_title from options inner join
- question on options.question_id = question.question_id where question.online_exam_id = 2";
+ question on options.question_id = question.question_id where question.online_exam_id = 3";
 $question_query_result = mysqli_query($conn,$question_query);
 $options_query_result = mysqli_query($conn,$options_query);
 $questions = array();
