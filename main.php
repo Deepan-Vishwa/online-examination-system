@@ -123,7 +123,7 @@ while($row = mysqli_fetch_assoc($result))
                    
        
                   <div class="container mt-3 d-flex justify-content-center align-items-center">
-                    <a href="#" class="btn cardheaderbg text-white mt-2 float-right startbtn" id="online_exam_id">Start</a>
+                    <button  class="btn cardheaderbg text-white mt-2 float-right startbtn" data-online_exam_id ="<?php echo $row['online_exam_id'];?>"  id="main_start-<?php echo $row['online_exam_id'];?>">Start</button>
                 </div>
             </div>
           </div>
@@ -137,6 +137,40 @@ while($row = mysqli_fetch_assoc($result))
         ?>
           
     </div> 
+    <script>
+      $(document).ready(function(){
+
+        $(".startbtn").click(function(e){
+
+          var idClicked = e.target.id;
+         var online_exam_id = $(`#${idClicked}`).data("online_exam_id");
+         $.ajax({ // hey go to test.php and get me whatever its printed there 
+            url: "main.php",
+            type: "POST",
+            data:{
+              online_exam_id:online_exam_id
+            },
+            success: function(dataResult){
+              console.log(online_exam_id);
+              window.location.href="test.html";
+            }
+           
+        })
+
+         
+        });
+
+      });
+    </script>
 
 </body>
 </html>
+<?php
+
+if(isset($_POST["online_exam_id"])){
+  session_start();
+            $_SESSION['online_exam_id'] = $_POST["online_exam_id"];
+}
+
+
+          ?>

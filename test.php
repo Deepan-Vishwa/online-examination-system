@@ -1,9 +1,11 @@
 <?php 
+extract($_POST);
+session_start();
 include 'config.php';
 
-$question_query = "SELECT * FROM question WHERE online_exam_id = 3";
+$question_query = "SELECT * FROM question WHERE online_exam_id =".$_SESSION['online_exam_id'];
 $options_query = "select options.question_id,options.option_title from options inner join
- question on options.question_id = question.question_id where question.online_exam_id = 3";
+ question on options.question_id = question.question_id where question.online_exam_id =". $_SESSION['online_exam_id'];
 $question_query_result = mysqli_query($conn,$question_query);
 $options_query_result = mysqli_query($conn,$options_query);
 $questions = array();
@@ -28,5 +30,5 @@ while ($row_options = mysqli_fetch_assoc($options_query_result))
            $ques++;
        }
    echo (json_encode($final));
-
+    
 ?>

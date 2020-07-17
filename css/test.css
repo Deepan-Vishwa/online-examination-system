@@ -8,6 +8,30 @@ body{
  
 
 }
+.h1title{
+    color: darkblue;
+    font-family: 'Playfair Display', serif;
+    font-size:  3vw;
+}
+.info-container{
+    margin-top: 5%;
+    width: 35%;
+    
+  }
+  .info-card{
+    background: rgba(0,0,0,0.5);
+    
+  }
+  .info-alert{
+    width: 10%;
+    height: auto;
+  }
+
+
+
+.nav-btn-border{
+    border: 2px solid darkblue !important;
+}
 .navbarbg{
     background-color: darkblue;
 }
@@ -22,3 +46,4 @@ body{
     padding: .200rem .40rem !important;
     
 }
+
