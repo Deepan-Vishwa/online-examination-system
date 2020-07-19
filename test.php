@@ -20,6 +20,7 @@ while ($row_options = mysqli_fetch_assoc($options_query_result))
    foreach($questions as $question){
        $op = 0;
       $final[$ques]["question"] = $question["question_title"];
+      $final[$ques]["question_id"] = $question["question_id"];
        foreach($options as $option){
         if($question["question_id"] == $option["question_id"]){
        

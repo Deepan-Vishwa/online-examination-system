@@ -104,9 +104,13 @@ $(document).ready(function() {
             
         }
     });
+
+    $("#sub").click(function(){
+        console.log(response);
+    });
     
     function save_response(response_question){
-        response[response_question].question = response_question;
+        response[response_question].question = questions[response_question].question_id;
         response[response_question].answer = $(`input[name=Radio-${response_question}]:checked`).attr("value");
 
     }
@@ -121,10 +125,11 @@ $(document).ready(function() {
 
         for(i=0; i<questions.length;i++){
             response.push({
-                question: null,
+                question: questions[i].question_id,
                 answer:null
             });
         }
+        console.log(response);
     }
     
     function load_nav_button(){
