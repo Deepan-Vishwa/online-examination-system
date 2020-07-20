@@ -105,7 +105,7 @@ $(document).ready(function() {
         }
     });
 
-    $("#sub").click(function(){
+    $("#sub , #top-sub").click(function(){
         console.log(response);
     });
     
