@@ -1,0 +1,49 @@
+html,body{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+body{
+ background-color: aliceblue;
+ 
+
+}
+.h1title{
+    color: darkblue;
+    font-family: 'Playfair Display', serif;
+    font-size:  3vw;
+}
+.info-container{
+    margin-top: 5%;
+    width: 35%;
+    
+  }
+  .info-card{
+    background: rgba(0,0,0,0.5);
+    
+  }
+  .info-alert{
+    width: 10%;
+    height: auto;
+  }
+
+
+
+.nav-btn-border{
+    border: 2px solid darkblue !important;
+}
+.navbarbg{
+    background-color: darkblue;
+}
+.navigation-button{
+    border-radius: 50%;
+    height:43px; 
+    width:43px;
+    margin-bottom: 7px !important;
+    margin-right:5px;
+    font-size: 1vw;
+    font-weight: bold;
+    padding: .200rem .40rem !important;
+    
+}
+
