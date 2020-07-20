@@ -46,6 +46,9 @@ body{
     font-family: 'Playfair Display', serif;
     font-size:  3vw;
 }
+.pro-img{
+  width: 100%;
+}
 
 .startbtn{
   width:25%
@@ -189,8 +192,12 @@ body{
     max-width: 150px;
     height: auto;
 }
-
-
+ 
+.pro-img{
+  width: 40%;
+}
  
 }
+
+
 
