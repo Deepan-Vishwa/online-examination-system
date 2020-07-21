@@ -1,0 +1,126 @@
+html,body{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+body{
+ background-color: aliceblue;
+ 
+
+}
+.navbarbg{
+    background-color: darkblue;
+}
+.border-darkblue{
+
+    border-left: 1px solid darkblue;
+  
+  }
+.table-header{
+    background-color: darkblue;
+    color: white;
+}
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: aliceblue;
+ }
+ .container-table{
+   width: 80%;
+ }
+ .table-header-font
+ {
+   font-size: 0.99vw;
+ }
+ 
+
+
+
+  .h1title{
+    
+      color: darkblue;
+      font-family: 'Playfair Display', serif;
+      font-size:  3vw;
+  }
+  .animation {
+    -webkit-animation-name: move;
+            animation-name: move;
+    -webkit-animation-duration: .4s;
+            animation-duration: .4s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-animation-delay: 2s;
+            animation-delay: 2s;
+  }
+  .a1 {
+    -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+  }
+  .a2 {
+    -webkit-animation-delay: 0.6s;
+            animation-delay: 0.6s;
+  }
+  .a3 {
+    -webkit-animation-delay: 0.7s;
+            animation-delay: 0.7s;
+  }
+  @keyframes move {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transform: translateY(-40px);
+              transform: translateY(-40px);
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .h1title{
+        font-size: 5.5vw;
+        font-weight: bold;
+    }
+    .subtitle{
+      
+        font-family: 'Playfair Display', serif;
+        font-size:  5vw;
+    }
+    .container-table{
+      width: 98%;
+    }
+    .table-header-font
+ {
+   font-size: 4vw;
+ }
+   
+
+   /* .table thead{
+      display: none;
+    }
+  .table td, .table tr, .table th, .table tbody{
+    display:block;
+    width: 100%;
+
+  }
+  .table td{
+    text-align: right;
+    position: relative;
+    padding-left:50%;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  */
+  }
+   

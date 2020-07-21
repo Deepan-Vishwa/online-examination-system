@@ -11,7 +11,7 @@ $(document).ready(function(){
     
     });
 $(document.documentElement).keydown(function(){
-
+  launchIntoFullscreen(document.documentElement);
   alert("key pressed");
   
 });

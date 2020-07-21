@@ -11,7 +11,19 @@ body{
 .navbarbg{
     background-color: darkblue;
 }
-
+.info-container{
+  margin-top: 5%;
+  width: 35%;
+  
+}
+.info-card{
+  background: rgba(0,0,0,0.5);
+  
+}
+.info-alert{
+  width: 10%;
+  height: auto;
+}
 .formcontainer{
     margin-top: 9%;
     width: 25%;
@@ -144,6 +156,10 @@ body{
     }
   }
 @media screen and (max-width: 800px) {
+  .info-container{
+    margin-top: 20%;
+    width: 90%;
+  }
     .h1title{
         font-size: 5.5vw;
         font-weight: bold;
@@ -191,5 +207,7 @@ body{
 }
 
 
+
+ 
 }
 
