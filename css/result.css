@@ -1,0 +1,61 @@
+html,body{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+body{
+ background-color: aliceblue;
+ 
+
+}
+.navbarbg{
+    background-color: darkblue;
+}
+.border-darkblue{
+
+    border-left: 1px solid darkblue;
+  
+  }
+.table-header{
+    background-color: darkblue;
+    color: white;
+}
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: aliceblue;
+ }
+ .container-table{
+   width: 80%;
+ }
+ .table-header-font
+ {
+   font-size: 0.99vw;
+ }
+ 
+
+
+
+  .h1title{
+    
+      color: darkblue;
+      font-family: 'Playfair Display', serif;
+      font-size:  3vw;
+  }
+  @media screen and (max-width: 700px) {
+    .h1title{
+        font-size: 5.5vw;
+        font-weight: bold;
+    }
+    .subtitle{
+      
+        font-family: 'Playfair Display', serif;
+        font-size:  5vw;
+    }
+    .container-table{
+      width: 98%;
+    }
+    .table-header-font
+ {
+   font-size: 4vw;
+ }
+}

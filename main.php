@@ -41,7 +41,7 @@ if (!isset($_SESSION["userid"])) {
                     <a class="nav-link" href="profile.php">Profile</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Results</a>
+                    <a class="nav-link" href="result.html">Results</a>
                   </li>
 
                 <li class="nav-item">

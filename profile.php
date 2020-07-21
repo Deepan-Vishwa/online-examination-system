@@ -37,14 +37,14 @@ $result = mysqli_query($conn, $query);
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="main.php">Home<span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                  <a class="nav-link" href="main.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="profile.html">Profile</a>
+                    <a class="nav-link active" href="profile.html">Profile<span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Results</a>
+                    <a class="nav-link" href="result.html">Results</a>
                   </li>
 
                 <li class="nav-item">
