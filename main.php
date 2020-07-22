@@ -172,5 +172,23 @@ if(isset($_POST["online_exam_id"])){
             $_SESSION['online_exam_id'] = $_POST["online_exam_id"];
 }
 
+if(isset($_POST["online_exam_id"])){
+  session_start();
+            $_SESSION['online_exam_id'] = $_POST["online_exam_id"];
+
+            $time_query = "SELECT end_time FROM online_exam where online_exam_id=". $_POST["online_exam_id"];
+
+            $get_time = mysqli_query($conn, $time_query); 
+
+            while ($row_time = mysqli_fetch_assoc($get_time))
+            $end_time = $row_time['end_time'];
+
+            $_SESSION['end_time']= $end_time;
+
+            
+}
+
+
+          ?>
 
           ?>
