@@ -1,3 +1,32 @@
+<?php include 'config.php';
+session_start();
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+
+if (!isset($_SESSION["userid"]) && !isset($_SESSION["end_time"]) &&  !isset($_SESSION["start_time"]) ) {
+  
+  header('Location: index.html');
+  exit();
+}
+
+/*
+! this feature will be used later , for testing purpose its commented
+date_default_timezone_set('Asia/Kolkata');
+
+$current = strtotime(date("Y-m-d H:i:s"));
+$start =   strtotime($_SESSION["start_time"]);
+$end = strtotime($_SESSION["end_time"]);
+
+  if($start > $current || $current > $end){
+    header('Location: main.php');
+    exit();
+  } 
+  
+  */
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,18 +71,6 @@
     
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark navbarbg animation a1" id="nav" style="display: none;">
             <a class="navbar-brand" style="font-family: 'Baloo Bhai 2', cursive;" href="#">KDSG</a>
@@ -99,8 +116,8 @@
       
       
         <div class="card h-100" style="width: 25%;">
-          <div class="card-header text-center" id="countdown"style="font-size: 1.1vw; font-weight: bold;">
-            Time: 00:00:00
+          <div class="card-header text-center"style="font-size: 1.1vw; font-weight: bold;">
+            Time: <span id = "countdown" style = "color: red;">00:00:00</span>
           </div>
           <div class="card-body d-felx flex-wrap text-center" id="question_nav">
           </div>
@@ -115,16 +132,11 @@
       </div> 
       
     </div>
-      
+      <script>
+        var end_time = "<?php echo $_SESSION['end_time'] ?>";
+        var start_time = "<?php echo $_SESSION['start_time'] ?>";
+      </script>
 <script src="./js/test.js"></script>
-<script>
-  setInterval(function(){
 
-var xhttp = new XMLHttpRequest();
-xhttp.open("GET","timer.php",false);
-xhttp.send(null);
-document.getElementById("countdown").innerHTML=xhttp.responseText;
-},1000);
-</script>
 </body>
 </html>
