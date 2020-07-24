@@ -132,8 +132,14 @@ var x = setInterval(function() {
         }
     });
 
-    $("#sub , #top-sub").click(function(){
-        console.log(response);
+    
+
+    $("#sub").click(function(){
+        $("#processing").show();
+        $(".heading-hide").show();
+        $("#nav").hide();
+        $("#container_question").hide();
+        
     });
     
     function save_response(response_question){
