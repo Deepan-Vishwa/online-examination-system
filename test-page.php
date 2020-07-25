@@ -1,3 +1,32 @@
+<?php include 'config.php';
+session_start();
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+
+if (!isset($_SESSION["userid"]) && !isset($_SESSION["end_time"]) &&  !isset($_SESSION["start_time"]) ) {
+  
+  header('Location: index.html');
+  exit();
+}
+
+/*
+! this feature will be used later , for testing purpose its commented
+date_default_timezone_set('Asia/Kolkata');
+
+$current = strtotime(date("Y-m-d H:i:s"));
+$start =   strtotime($_SESSION["start_time"]);
+$end = strtotime($_SESSION["end_time"]);
+
+  if($start > $current || $current > $end){
+    header('Location: main.php');
+    exit();
+  } 
+  
+  */
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,17 +72,15 @@
 
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
+    <div class="container text-center mt-5" id="processing" style="display:none;">
+    <img src="./assets/exam.png" alt="" width="13%" height="auto">
+    <h2>Please Wait For The Process To Be Completed...</h2>
+    <h2 style = "display:none">Respond Recorded Successfully</h2>
+    <div class="spinner-border text-danger" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <button class="btn btn-success mt-3"  style="display:none;" href = "main.php">Go to Home</button>
+</div>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark navbarbg animation a1" id="nav" style="display: none;">
             <a class="navbar-brand" style="font-family: 'Baloo Bhai 2', cursive;" href="#">KDSG</a>
@@ -66,7 +93,7 @@
               <ul class="navbar-nav ml-auto">
                 
                 <li class="nav-item">
-                  <button type="button" class="navlink btn btn-danger  ml-auto" id = "top-sub">Submit</button>
+                  <button type="button" class="navlink btn btn-danger  ml-auto"  data-toggle="modal" data-target="#staticBackdrop" id = "top-sub">Submit</button>
                   </li>
               </ul>
             </div>
@@ -99,8 +126,8 @@
       
       
         <div class="card h-100" style="width: 25%;">
-          <div class="card-header text-center" style="font-size: 1.1vw; font-weight: bold;">
-            Time: 00:00:00
+          <div class="card-header text-center"style="font-size: 1.1vw; font-weight: bold;">
+            Time: <span id = "countdown" style = "color: red;">00:00:00</span>
           </div>
           <div class="card-body d-felx flex-wrap text-center" id="question_nav">
           </div>
@@ -108,14 +135,39 @@
            <button class="btn btn-primary" id="book_mark" style="width: 48%;"><i class="fa fa-star"></i> Book Mark</button>
            <button class="btn btn-info text-white float-right" style="width: 48%;" id="remove_book_mark">Remove Mark</button>
            <button class="btn btn-success float-right mt-2 w-100"  id="next">Save & Next   <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
-           <button class="btn btn-danger float-right mt-2 w-100" id="sub" style=" display: none;" >Submit</button>
+           <button class="btn btn-danger float-right mt-2 w-100"  data-toggle="modal" data-target="#staticBackdrop" id="sub" style=" display: none;" >Submit</button>
           </div>
         </div>
         
       </div> 
       
     </div>
-      
+
+
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       Are you Sure want to Submit ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" id="final_sub">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <script>
+        var end_time = "<?php echo $_SESSION['end_time'] ?>";
+        var start_time = "<?php echo $_SESSION['start_time'] ?>";
+      </script>
 <script src="./js/test.js"></script>
+
 </body>
 </html>
