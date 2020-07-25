@@ -37,11 +37,18 @@ if (!isset($_SESSION["userid"])) {
                 <li class="nav-item active">
                   <a class="nav-link" href="main.php">Home<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="profile.php">Profile</a>
-                  </li>
+
                   <li class="nav-item">
                     <a class="nav-link" href="result.html">Results</a>
+                  </li>
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Account</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                   <a class="dropdown-item" href="profile.php">Profile</a>
+                   <a class="dropdown-item" href="#">Logout</a>
+                   
                   </li>
 
                 <li class="nav-item">
