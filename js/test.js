@@ -134,7 +134,7 @@ var x = setInterval(function() {
 
     
 
-    $("#sub").click(function(){
+    $("#final_sub").click(function(){
         $("#processing").show();
         $(".heading-hide").show();
         $("#nav").hide();
