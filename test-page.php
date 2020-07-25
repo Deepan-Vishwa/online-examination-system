@@ -135,7 +135,7 @@ $end = strtotime($_SESSION["end_time"]);
            <button class="btn btn-primary" id="book_mark" style="width: 48%;"><i class="fa fa-star"></i> Book Mark</button>
            <button class="btn btn-info text-white float-right" style="width: 48%;" id="remove_book_mark">Remove Mark</button>
            <button class="btn btn-success float-right mt-2 w-100"  id="next">Save & Next   <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
-           <button class="btn btn-danger float-right mt-2 w-100"  data-toggle="modal" data-target="#staticBackdrop" style=" display: none;" >Submit</button>
+           <button class="btn btn-danger float-right mt-2 w-100"  data-toggle="modal" data-target="#staticBackdrop" id="sub" style=" display: none;" >Submit</button>
           </div>
         </div>
         
@@ -158,7 +158,7 @@ $end = strtotime($_SESSION["end_time"]);
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        <button type="button" class="btn btn-success" data-dismiss="modal" id="sub">Submit</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" id="final_sub">Submit</button>
       </div>
     </div>
   </div>
