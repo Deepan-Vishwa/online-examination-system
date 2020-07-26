@@ -22,6 +22,7 @@ $(document).ready(function() {
         $("#instructions").hide();
         $("#nav").show();
         $("#container_question").show();
+        
     });
 
     function launchIntoFullscreen(element) {
@@ -101,12 +102,14 @@ $(document).ready(function() {
         }
         else{
             nav_btn_color(current_question,"btn-success");
-            
-        }
-    });
+                                                                     // response[response_question].question = questionid
+        }                                                            //response[response_question].answer = studentanswer
+    });                                                               //session['online_exam_id'] = examid
 
+    // submit button response
     $("#sub , #top-sub").click(function(){
-        console.log(response);
+       console.log(response);
+    
     });
     
     function save_response(response_question){
@@ -172,5 +175,5 @@ $(document).ready(function() {
 
     }
 
-
+        
 });

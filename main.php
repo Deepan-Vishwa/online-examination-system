@@ -137,13 +137,41 @@ while($row = mysqli_fetch_assoc($result))
         ?>
           
     </div> 
+
+    <div class="modal fade" id="alert-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Alert</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             Sorry You cannot Attend Your exam in Mobile !!
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn navbarbg text-white" data-dismiss="modal">Understood</button>
+             
+            </div>
+          </div>
+        </div>
+      </div>
     <script>
       $(document).ready(function(){
-
+       
         $(".startbtn").click(function(e){
+          var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    var element = document.getElementById('text');
+    if (isMobile) {
+        $('#alert-modal').modal('show')
+    } else {
 
           var idClicked = e.target.id;
          var online_exam_id = $(`#${idClicked}`).data("online_exam_id");
+         $(`#${idClicked}`).attr("disabled",true);
+    $(`#${idClicked}`).html('<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" id="load"></span>Please wait...');
+   
          $.ajax({ // hey go to test.php and get me whatever its printed there 
             url: "main.php",
             type: "POST",
@@ -156,6 +184,7 @@ while($row = mysqli_fetch_assoc($result))
             }
            
         })
+      }
 
          
         });
