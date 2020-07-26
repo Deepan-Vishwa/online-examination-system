@@ -137,10 +137,33 @@ var x = setInterval(function() {
     
 
     $("#final_sub").click(function(){
+
         $("#processing").show();
         $(".heading-hide").show();
         $("#nav").hide();
         $("#container_question").hide();
+
+        $.ajax({ // hey go to test.php and get me whatever its printed there 
+            url: "result-validation.php",
+            type: "POST",
+            data: {
+                response:response,
+                questions:questions
+            },
+            success: function(response){
+                console.log(response);
+                
+               
+            }
+        });
+            
+        $("#wait").hide();
+        $("#wait-load").hide();
+        $("#res-success").show();
+        $("#gotohome").show();
+        
+
+      
         
 
     });
