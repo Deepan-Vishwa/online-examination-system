@@ -3,7 +3,7 @@ var countDownDate = new Date(end_time).getTime();
 
 $(document).ready(function() {
     $("#instruct-check").click(function() {
-        $("#start pan").attr("disabled", !this.checked);
+        $("#start").attr("disabled", !this.checked);
       });
 // * Timer function
 
