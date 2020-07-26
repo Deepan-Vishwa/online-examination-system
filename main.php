@@ -17,6 +17,8 @@ if (!isset($_SESSION["userid"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/57c22c66dc.js" crossorigin="anonymous"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Lobster&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&family=Playfair+Display&display=swap" rel="stylesheet">     
@@ -45,9 +47,9 @@ if (!isset($_SESSION["userid"])) {
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Account</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                   <a class="dropdown-item" href="profile.php">Profile</a>
-                   <a class="dropdown-item" href="#">Logout</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style=" min-width: 9rem !important;">
+                   <a class="dropdown-item" href="profile.php"> <i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+                   <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                    
                   </li>
 

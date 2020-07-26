@@ -1,8 +1,12 @@
 
+
  
 $(document).ready(function() {
 
-      
+   setTimeout(function(){
+
+      $("#emailid").focus();
+   },1000); 
   
    $('#btnFetch').click(function() {
      

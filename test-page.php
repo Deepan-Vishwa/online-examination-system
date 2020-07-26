@@ -53,18 +53,56 @@ $end = strtotime($_SESSION["end_time"]);
   </div>
     <div class="container info-container" id="instructions">
       <div class="card info-card">
-        <div class="card-body text-white">
+        <div class="card-body ">
           <div class="text-center">
           <img class="info-alert" src="./assets/Alert-Download-PNG.png"/>
-        <h5 class="card-title text-white">Important Instructions</h5>
+        <h5 class="card-title "style="font-size:1.4vw">Important Instructions</h5>
       </div>
-       <ul>
-           <li>Should not try to Exit Full Screen</li>
-           <li>Should not use <strong>keyboard</strong></li>
-           <li>if any key is pressed in the keyboard or if you try to exit the full screen the exam will be submited in 10 seconds</li>
+       <ul style="font-size:1.2vw">
+           <li class = "mt-3">The exam consists of multiple choice questions and all the questions are compulsory.</li>
+           <li class = "mt-3">Exam must be completed within the allotted time frame.</li>
+           <li class = "mt-3"><strong>The exam is conducted in full screen mode. So do not try to refresh or minimize your browser once you start the exam.</strong></li>
+           <li class = "mt-3"><strong>Don't use your keyboard during the exam and it will submit your exam automatically</strong></li>
+           <li class = "mt-3">The exam screen will continuously display the remaining time at the top of the question navigaion, eg. <span style="font-size: 1.1vw; font-weight: bold;">Time: <span style="color:red;">00:20:01</span></span></li>
+           <li class = "mt-3">The questions can be answered in any order the candidate may wish to.</li>
+           <li class = "mt-3"> You can navigate between questions by clicking on the circle question button on the right side of the screen.</li>
+           <li class = "mt-3">
+           <button type="button" style="width: 3%; height :auto;" class="btn btn-danger navigation-button">1</button> - indicates unanswered questions
+           </li>
+           <li  class = "mt-3">
+           <button type="button" style="width: 3%; height :auto;" class="btn btn-success navigation-button">1</button> - indicates answered questions
+           </li>
+           <li  class = "mt-3"  >In order to answer a question, click on the radio button to respond.The current question is indicated by a blue outerline in the circle buttons.</li>
+           <li  class = "mt-3"> 
+           <button class="btn btn-primary" style="width:auto; height: 3%"><i class="fa fa-star"></i> Book Mark</button>  
+
+              - You can Bookmark questions to review before submitting by clicking on bookmark button </li>
+           <li  class = "mt-3">  
+           <button type="button" class="btn btn-info " style="width:auto; height: 3%"> Remove mark</button>  
+
+               - you can remove the bookmark using remove bookmark button</li>
+           <li  class = "mt-3">
+           <button class="btn btn-success" style="width:auto; height: 3%">Save & Next   <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+
+           - Click save and next button to save your answer periodically during the exam and to navigate the next question.</li>
+           
+           <li class = "mt-3">
+           <button type="button" class="btn btn-danger " style="width:auto; height: 3%">Submit</button> 
+             - Click submit button to submit your exam.Do not press "Enter" on the keyboard to submit the exam. </li>
+           <li class = "mt-3"> Make sure you have a good internet connection.</li>
+           <li class = "mt-3">You are not permitted to take the Exam on mobile phones,smart watches or anyother electronic gadgets.</li>
+           <li class = "mt-3">You are permitted to write only one exam at a time.</li>
+
        </ul>
+       
+       <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="instruct-check"  style="font-size:1.3vw">
+        <label class="custom-control-label" for="instruct-check">I have read all the instructions above</label>
+      </div>
+
+      
        <div class="text-center">
-        <button id="start" class="btn navbarbg text-white">Start Exam</button>
+        <button id="start" class="btn navbarbg text-white" disabled = true>Start Exam</button>
       </div>
       </div>
       </div>

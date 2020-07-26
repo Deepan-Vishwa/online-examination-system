@@ -14,20 +14,22 @@ body{
     font-size:  3vw;
 }
 .info-container{
-    margin-top: 5%;
-    width: 35%;
+    margin-top: 1%;
+    width: auto;
+    overflow-y: scroll;
+    height: 80%;
     
   }
   .info-card{
-    background: rgba(0,0,0,0.5);
+    background: rgba(228, 228, 228, 0.986);
     
   }
   .info-alert{
-    width: 10%;
+    width: 5%;
     height: auto;
   }
 
-
+  
 
 .nav-btn-border{
     border: 2px solid darkblue !important;
