@@ -1,4 +1,31 @@
+
+var countDownDate = new Date(end_time).getTime();
+
 $(document).ready(function() {
+
+// * Timer function
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML = hours.toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"
+  + minutes.toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":" + seconds.toLocaleString(undefined,{minimumIntegerDigits: 2});
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
+
+
+
     var questions = function(){
         var temp = null;
         $.ajax({ // hey go to test.php and get me whatever its printed there 
@@ -102,14 +129,20 @@ $(document).ready(function() {
         }
         else{
             nav_btn_color(current_question,"btn-success");
-                                                                     // response[response_question].question = questionid
-        }                                                            //response[response_question].answer = studentanswer
-    });                                                               //session['online_exam_id'] = examid
+                                                                    
+        }                                                            
+    });                                                               
 
-    // submit button response
-    $("#sub , #top-sub").click(function(){
-       console.log(response);
+
     
+
+    $("#final_sub").click(function(){
+        $("#processing").show();
+        $(".heading-hide").show();
+        $("#nav").hide();
+        $("#container_question").hide();
+        
+
     });
     
     function save_response(response_question){

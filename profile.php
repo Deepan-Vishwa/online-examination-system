@@ -41,7 +41,7 @@ $result = mysqli_query($conn, $query);
                   <a class="nav-link" href="main.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="profile.html">Profile<span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="profile.php">Profile<span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="result.html">Results</a>
