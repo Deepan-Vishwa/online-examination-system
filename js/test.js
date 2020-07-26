@@ -49,6 +49,7 @@ var x = setInterval(function() {
         $("#instructions").hide();
         $("#nav").show();
         $("#container_question").show();
+        
     });
 
     function launchIntoFullscreen(element) {
@@ -128,9 +129,10 @@ var x = setInterval(function() {
         }
         else{
             nav_btn_color(current_question,"btn-success");
-            
-        }
-    });
+                                                                    
+        }                                                            
+    });                                                               
+
 
     
 
@@ -140,6 +142,7 @@ var x = setInterval(function() {
         $("#nav").hide();
         $("#container_question").hide();
         
+
     });
     
     function save_response(response_question){
@@ -205,5 +208,5 @@ var x = setInterval(function() {
 
     }
 
-
+        
 });
