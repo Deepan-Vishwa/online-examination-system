@@ -1,4 +1,8 @@
+
+ 
 $(document).ready(function() {
+
+      
   
    $('#btnFetch').click(function() {
      
@@ -21,6 +25,8 @@ $(document).ready(function() {
          {
            
             if (data === '1') {
+
+
             window.location.href="main.php";
          }
             else {
@@ -42,9 +48,16 @@ $(document).ready(function() {
       $("#btnFetch").html("Login");
       }
    
-   });
+
+      });
+
+      $(document.documentElement).keypress(function(event) {
+         if (event.keyCode === 13) {
+            $( "#btnFetch" ).trigger( "click" );
+         }
+       });
   
- 
+   
 });
 
   
