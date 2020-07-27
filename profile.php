@@ -42,7 +42,9 @@ $result = mysqli_query($conn, $query);
                 <li class="nav-item">
                   <a class="nav-link" href="main.php">Home</a>
                 </li>
-                
+                <li class="nav-item">
+                <a class="nav-link" href="instruction.html">Instruction</a>
+              </li>
                   <li class="nav-item">
                     <a class="nav-link" href="result.html">Results</a>
                   </li>
