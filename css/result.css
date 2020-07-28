@@ -22,7 +22,7 @@ body{
 }
 .table-striped>tbody>tr:nth-child(odd)>td, 
 .table-striped>tbody>tr:nth-child(odd)>th {
-   background-color: aliceblue;
+   background-color: #dbecff;
  }
  .container-table{
    width: 80%;

@@ -2,7 +2,9 @@
 var countDownDate = new Date(end_time).getTime();
 
 $(document).ready(function() {
-
+    $("#instruct-check").click(function() {
+        $("#start").attr("disabled", !this.checked);
+      });
 // * Timer function
 
 var x = setInterval(function() {
