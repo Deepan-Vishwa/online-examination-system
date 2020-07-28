@@ -20,6 +20,12 @@ body{
     height: 80%;
     
   }
+  .info-container_page{
+    margin-top: 1%;
+    width: auto;
+    overflow-y: scroll;
+    height: 75%;
+  }
   .info-card{
     background: rgba(228, 228, 228, 0.986);
     
@@ -28,7 +34,12 @@ body{
     width: 5%;
     height: auto;
   }
-
+.instruct{
+  font-size:1.2vw;
+}
+.instruct_title{
+  font-size:1.5vw;
+}
   
 
 .nav-btn-border{
@@ -48,4 +59,70 @@ body{
     padding: .200rem .40rem !important;
     
 }
+.instruct_c_btn{
+  width: 3%; 
+  height :auto;
+}
+.instruct_btn{
+  width:auto;
+   height: 3%;
+}
 
+@media screen and (max-width: 800px) {
+  .h1title{
+    font-size: 5.5vw;
+    font-weight: bold;
+}
+.subtitle{
+  
+    font-family: 'Playfair Display', serif;
+    font-size:  5vw;
+}
+ 
+  .info-container_page{
+    margin-top: 1%;
+    width: auto;
+    overflow-y: scroll;
+    height: 80%;
+  }
+  .info-card{
+    background: rgba(228, 228, 228, 0.986);
+  
+    
+  }
+  .card-title{
+    font-size:4vw;
+  }
+  .card-body{
+    font-size: 3.5vw;
+    
+  }
+  .info-alert{
+    width: 10%;
+    height: auto;
+    margin-bottom: 1%;
+   
+  }
+  .instruct_c_btn{
+    font-size: 20px;
+    width: 40px;
+  }
+.instruct{
+  font-size:4vw;
+ padding-left: 2%;
+ text-align: justify;
+}
+.instruct_btn{
+  font-size: 10px;
+}
+.instruct_title{
+  font-size:4vw;
+}
+.info-container_page{
+  margin-top: 1%;
+  width: auto;
+  overflow-y: scroll;
+  height: 85%;
+  
+}
+}

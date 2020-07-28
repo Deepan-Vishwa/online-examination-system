@@ -32,7 +32,7 @@ $result = mysqli_query($conn, $query);
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark navbarbg animation a1" id="nav">
+        <nav class="navbar navbar-expand-lg navbar-dark navbarbg " id="nav">
             <a class="navbar-brand" style="font-family: 'Baloo Bhai 2', cursive;" href="#">KDSG</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -63,12 +63,12 @@ $result = mysqli_query($conn, $query);
             </div>
           </nav>
     </header>
-    <div class="container mt-3 d-flex justify-content-center align-items-center">
+    <div class="container d-flex justify-content-center align-items-center">
         <h1 class="h1title animation a2" id="title">KDSG Examination System</h1>
         
     </div>
-    <div class="container d-flex justify-content-center align-items-center animation a3" style="margin-top: 3%;">
-      <div class="card mb-3 shadow-lg p-3 mb-5 bg-white rounded" style="max-width: 700px;">
+    <div class="container d-flex justify-content-center align-items-center animation a3" style="margin-top: 1%;">
+      <div class="card shadow-lg p-3 bg-white rounded" style="max-width: 700px;height:75%;">
         <div class="row no-gutters">
           <div class="col-md-4 p-3 d-flex align-items-center justify-content-center" style="background: #2e5b82;">
             <img src="./assets/user.png" class="card-img pro-img">
