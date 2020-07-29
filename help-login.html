@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/57c22c66dc.js" crossorigin="anonymous"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Lobster&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&family=Playfair+Display&display=swap" rel="stylesheet">     
@@ -38,7 +40,8 @@
   </div>
     <div class="container helpformcontainer" >
       <h4 style="color: darkblue; font-weight: 600;" class="animation a3">We're Here To Help You!!!</h4>
-                 <form>
+      <div class="alert alert-red collapse" id="alert_login_mail" name="alert_main_mail" aria-hidden="true"></div>
+                 <form id="mail_login_form">
                     <div class="form-group ">
                       <label for="help_email" class="animation a4">Email address</label>
                       <input type="email" class="form-control  animation a5" id="help_email" placeholder="Enter email">

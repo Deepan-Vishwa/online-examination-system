@@ -9,6 +9,7 @@ $(document).ready(function(){
          var ci = $("#help_ci").val().trim();
      var oi = $("#help_oi").val().trim();
      var pd = $("#help_pd").val().trim();
+     if(email != ""  && ci != "" && oi != "" & pd != ""){
         $.ajax({ 
             url: "mailer.php",
             type: "POST",
@@ -26,9 +27,21 @@ $(document).ready(function(){
                 $("#load").remove();
                $("#send_mail").attr("disabled",false);
                $("#send_mail").html("Send");
+               $('#mail_login_form').closest('form').find("input[type=text], textarea").val("");
+               $('#help_ci').val("none");
+               $('#help_email').val("");
             }
            
         });
+    }
+        else{
+            $("#load").remove();
+            $("#send_mail").attr("disabled",false);
+            $("#send_mail").html("Send");
+    
+            $("#alert_login_mail").removeClass().attr("hidden",false).toggleClass(" alert alert-yellow").html("<i class='fas fa-exclamation-circle'></i> Please Fill in the Required Fields");
+
+        }
         
      });
 
@@ -41,6 +54,10 @@ $(document).ready(function(){
          var coi = $("#help_common").val().trim();
      var oti = $("#help_other").val().trim();
      var prd = $("#help_problem").val().trim();
+
+        if(coi != "" && oti != "" && prd != "")
+        {
+
         $.ajax({ 
             url: "mailer.php",
             type: "POST",
@@ -59,9 +76,20 @@ $(document).ready(function(){
                $("#load").remove();
               $("#main_mail").attr("disabled",false);
               $("#main_mail").html("Send");
+              $('#mail_form').closest('form').find("input[type=text], textarea").val("");
+              $('#help_common').val("none");
             }
            
         });
+    }
+    else{
+
+        $("#load").remove();
+        $("#main_mail").attr("disabled",false);
+        $("#main_mail").html("Send");
+        $("#alert_main_mail").removeClass().attr("hidden",false).toggleClass(" alert alert-yellow").html("<i class='fas fa-exclamation-circle'></i> Please Fill in the Required Fields");
+       
+    }
         
      });
 
