@@ -40,12 +40,12 @@
       <h4 style="color: darkblue; font-weight: 600;" class="animation a3">We're Here To Help You!!!</h4>
                  <form>
                     <div class="form-group ">
-                      <label for="exampleFormControlInput1" class="animation a4">Email address</label>
-                      <input type="email" class="form-control  animation a5" id="exampleFormControlInput1" placeholder="Enter email">
+                      <label for="help_email" class="animation a4">Email address</label>
+                      <input type="email" class="form-control  animation a5" id="help_email" placeholder="Enter email">
                     </div>
                     <div class="form-group ">
-                      <label for="exampleFormControlSelect1" class="animation a6">Common issues</label>
-                      <select class="form-control animation a7" id="exampleFormControlSelect1">
+                      <label for="help_ci" class="animation a6">Common issues</label>
+                      <select class="form-control animation a7" id="help_ci">
                         <option>issues</option>
                         <option>I can't login</option>
                         <option>Email and password is invalid</option>
@@ -53,22 +53,22 @@
                       </select>
                     </div>
                    <div class="form-group ">
-                        <label for="exampleFormControlTextarea1 font-family-Time-New_roman" class="animation a8">Other issue
+                        <label for="help_oi font-family-Time-New_roman" class="animation a8">Other issue
                         </label>
-                        <textarea class="form-control animation a9" id="exampleFormControlTextarea1" rows="2"></textarea>
+                        <textarea class="form-control animation a9" id="help_oi" rows="2"></textarea>
                     </div>
                     <div class="form-group ">
-                      <label for="exampleFormControlTextarea1 font-family-Time-New_roman" class="animation a10">Problem Description
+                      <label for="help_pd font-family-Time-New_roman" class="animation a10">Problem Description
                       </label>
-                      <textarea class="form-control animation a11" id="exampleFormControlTextarea1" rows="2"></textarea>
+                      <textarea class="form-control animation a11" id="help_pd" rows="2"></textarea>
                     </div>
                   </form>  
                   <div class="container mt-3 d-flex justify-content-center align-items-center">
-                       <a href="#" class="btn btn-primary navbarbg w-50 animation a12">Send</a>
+                       <button id="send_mail" class="btn btn-primary navbarbg w-50 animation a12">Send</button>
                   </div>
             </div>
           </div>
     </div>
-   
+   <script src="./js/help_mailer.js"></script>
 </body>
 </html>
