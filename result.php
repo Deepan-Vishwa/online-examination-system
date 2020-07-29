@@ -1,3 +1,16 @@
+<?php include 'config.php';
+session_start();
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+
+if (!isset($_SESSION["userid"])) {
+    header('Location: index.html');
+    exit();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +36,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark navbarbg " id="nav">
-            <a class="navbar-brand" style="font-family: 'Baloo Bhai 2', cursive;" href="#">KDSG</a>
+           <a class="navbar-brand" style="font-family: 'Baloo Bhai 2', cursive;" href="main.php">KDSG</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,7 +50,7 @@
                 </li>
                 
                   <li class="nav-item">
-                    <a class="nav-link active" href="result.html">Results<span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="result.php">Results<span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -68,8 +81,8 @@
                           <tr class="table-header-font">
                               <th>Subject</th>
                               <th>Date</th>
-                              <th>Passing marks</th>
-                              <th>Negative marks</th>
+                              <th>Min marks</th>
+                              <th>Marks per Right Answer</th>
                               <th>Marks obtained</th>
                               <th>Score percentage</th>
                               <th>Result</th>
@@ -77,103 +90,41 @@
                       </thead>
                      
                       <tbody>
-                          <tr>
-                              <td>Multimedia</td>
-                              <td>02/07/2020</td>
-                              <td>20</td>
-                              <td>1</td>
-                              <td>50/100</td>
-                              <td>50%</td>
-                              <td><a href="#" class="badge badge-success">Pass</a></td>
-                          </tr>
-                          <tr>
-                            <td>C#</td>
-                            <td>02/07/2020</td>
-                            <td>20</td>
-                            <td>1</td>
-                            <td>50/100</td>
-                            <td>50%</td>
-                            <td><a href="#" class="badge badge-success">Pass</a></td>
 
-                          </tr>
-                          <tr>
-                            <td>cloud computing</td>
-                            <td>02/07/2020</td>
-                            <td>20</td>
-                            <td>1</td>
-                            <td>50/100</td>
-                            <td>50%</td>
-                            <td><a href="#" class="badge badge-danger">fail</a></td>
+                      <?php
+                      $curent_time = date("Y-m-d H:i:s");
+                      $query = "
+                      SELECT 
+                      online_exam.online_exam_title,
+                      DATE_FORMAT(online_exam.online_exam_datetime, '%d-%m-%Y') AS date,
+                      online_exam.passing_score
+                      ,online_exam.marks_per_right_answer,
+                      online_exam.total_questions*online_exam.marks_per_right_answer as maximum_marks,
+                      result.marks_obtained,
+                      TRUNCATE((result.marks_obtained/(online_exam.total_questions*online_exam.marks_per_right_answer)) *100,0) as percent,
+                      IF(result.marks_obtained>= online_exam.passing_score ,'PASS','FAIL') as result_final
 
-                          </tr>
-                          <tr>
-                            <td>C</td>
-                            <td>02/07/2020</td>
-                            <td>20</td>
-                            <td>1</td>
-                            <td>50/100</td>
-                            <td>50%</td>
-                            <td><a href="#" class="badge badge-success">Pass</a></td>
+                      FROM online_exam INNER JOIN result on
 
-                          </tr>
-                          <tr>
-                            <td>java</td>
-                            <td>02/07/2020</td>
-                            <td>20</td>
-                            <td>1</td>
-                            <td>50/100</td>
-                            <td>50%</td>
-                            <td><a href="#" class="badge badge-success">Pass</a></td>
+                      online_exam.online_exam_id = result.online_exam_id where online_exam.end_time <='".$curent_time."'  And result.student_id =".$_SESSION['userid']." ORDER BY online_exam.end_time ASC";
 
-                          </tr>
+                      $result = mysqli_query($conn, $query); 
+            
+                        while($row = mysqli_fetch_assoc($result))
+                        {
+                          ?>
                           <tr>
-                            <td>.net</td>
-                            <td>02/07/2020</td>
-                            <td>20</td>
-                            <td>1</td>
-                            <td>50/100</td>
-                            <td>50%</td>
-                            <td><a href="#" class="badge badge-success">Pass</a></td>
+                              <td><?php echo $row["online_exam_title"]; ?></td>
+                              <td><?php echo $row["date"]; ?></td>
+                              <td><?php echo $row["passing_score"]; ?></td>
+                              <td><?php echo $row["marks_per_right_answer"]; ?></td>
+                              <td><?php echo $row["marks_obtained"]."/".$row["maximum_marks"] ?></td>
+                              <td><?php echo $row["percent"]."%" ?></td>
+                              <td><a href="#" class="badge badge-success"><?php echo $row["result_final"]; ?></a></td>
                           </tr>
-                          <tr>
-                            <td>operating system</td>
-                            <td>02/07/2020</td>
-                            <td>20</td>
-                            <td>1</td>
-                            <td>50/100</td>
-                            <td>50%</td>
-                            <td><a href="#" class="badge badge-danger">fail</a></td>
-
-                          </tr>
-                          <tr>
-                            <td>cdn</td>
-                            <td>02/07/2020</td>
-                            <td>20</td>
-                            <td>1</td>
-                            <td>50/100</td>
-                            <td>50%</td>
-                            <td><a href="#" class="badge badge-success">Pass</a></td>
-
-                          </tr>
-                          <tr>
-                            <td>php</td>
-                            <td>02/07/2020</td>
-                            <td>20</td>
-                            <td>1</td>
-                            <td>50/100</td>
-                            <td>50%</td>
-                            <td><a href="#" class="badge badge-danger">fail</a></td>
-
-                          </tr>
-                          <tr>
-                            <td>sql</td>
-                            <td>02/07/2020</td>
-                            <td>20</td>
-                            <td>1</td>
-                            <td>50/100</td>
-                            <td>50%</td>
-                            <td><a href="#" class="badge badge-success">Pass</a></td>
-                          </tr>
+                         <?php 
+                         }
+                         ?>
                           
                       </tbody>
                   </table>
