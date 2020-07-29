@@ -121,7 +121,7 @@ $end = strtotime($_SESSION["end_time"]);
 </div>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark navbarbg animation a1" id="nav" style="display: none;">
-            <a class="navbar-brand" style="font-family: 'Baloo Bhai 2', cursive;" href="#">KDSG</a>
+           <a class="navbar-brand" style="font-family: 'Baloo Bhai 2', cursive;" href="main.php">KDSG</a>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>

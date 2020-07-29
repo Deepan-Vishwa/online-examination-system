@@ -30,7 +30,7 @@ if (!isset($_SESSION["userid"])) {
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark navbarbg " id="nav">
-            <a class="navbar-brand" style="font-family: 'Baloo Bhai 2', cursive;" href="#">KDSG</a>
+           <a class="navbar-brand" style="font-family: 'Baloo Bhai 2', cursive;" href="main.php">KDSG</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -44,7 +44,7 @@ if (!isset($_SESSION["userid"])) {
               </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="result.html">Results</a>
+                    <a class="nav-link" href="result.php">Results</a>
                   </li>
 
                   <li class="nav-item dropdown">
@@ -79,7 +79,10 @@ as starting_time,online_exam.marks_per_wrong_answer,DATE_FORMAT(online_exam.end_
  as ending_time,exam_enrollment.*,students.student_id,total_questions*marks_per_right_answer AS maximum_marks 
  from online_exam INNER JOIN exam_enrollment ON online_exam.online_exam_id=exam_enrollment.online_exam_id INNER JOIN 
 students on exam_enrollment.section=students.student_section 
-AND exam_enrollment.year=students.student_year WHERE students.student_id=".$_SESSION['userid']." AND online_exam.online_exam_status='active';
+AND exam_enrollment.year=students.student_year WHERE students.student_id=".$_SESSION['userid']." 
+AND online_exam.online_exam_status='active' AND NOT EXISTS (SELECT result.online_exam_id ,
+ result.student_id From result WHERE result.online_exam_id = online_exam.online_exam_id 
+ and students.student_id = result.student_id) ORDER BY online_exam.online_exam_datetime ASC
 "; 
 
 $result = mysqli_query($conn, $query); 

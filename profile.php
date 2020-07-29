@@ -33,7 +33,7 @@ $result = mysqli_query($conn, $query);
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark navbarbg " id="nav">
-            <a class="navbar-brand" style="font-family: 'Baloo Bhai 2', cursive;" href="#">KDSG</a>
+           <a class="navbar-brand" style="font-family: 'Baloo Bhai 2', cursive;" href="main.php">KDSG</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -46,7 +46,7 @@ $result = mysqli_query($conn, $query);
                 <a class="nav-link" href="instruction.html">Instruction</a>
               </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="result.html">Results</a>
+                    <a class="nav-link" href="result.php">Results</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
