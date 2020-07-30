@@ -138,6 +138,8 @@ var x = setInterval(function() {
 
     $("#final_sub").click(function(){
 
+       
+
         $("#processing").show();
         $(".heading-hide").show();
         $("#nav").hide();
@@ -162,7 +164,7 @@ var x = setInterval(function() {
         $("#res-success").show();
         $("#gotohome").show();
         
-
+   
       
         
 

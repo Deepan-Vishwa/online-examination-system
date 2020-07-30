@@ -3,6 +3,17 @@ extract($_POST);
 session_start();
 include 'config.php';
 
+$current = strtotime(date("Y-m-d H:i:s"));
+$end = strtotime($_SESSION["end_time"]);
+$start =   strtotime($_SESSION["start_time"]);
+
+
+
+echo $current ."\n";
+echo $end ."\n";
+echo $start;
+if( $current>=$start || $current<=$end){
+
 //$student_answer="INSERT INTO student_answers (online_exam_id,question_id,student_answer) VALUES
  //('.$_SESSION['online_exam_id']','$response['question_id]','$response['answer'])";
 
@@ -43,6 +54,10 @@ if($score>=$pass_mark)    // fetch pass_mark from model page db
 else
 {
    echo "fail";
+}
+}
+else{
+   header('Location: main.php'); 
 }
 
 

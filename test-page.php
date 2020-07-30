@@ -11,7 +11,7 @@ if (!isset($_SESSION["userid"]) && !isset($_SESSION["end_time"]) &&  !isset($_SE
 }
 
 /*
-! this feature will be used later , for testing purpose its commented
+//! this feature will be used later , for testing purpose its commented
 date_default_timezone_set('Asia/Kolkata');
 
 $current = strtotime(date("Y-m-d H:i:s"));
@@ -22,8 +22,9 @@ $end = strtotime($_SESSION["end_time"]);
     header('Location: main.php');
     exit();
   } 
-  
   */
+  
+  
 
 
 ?>
