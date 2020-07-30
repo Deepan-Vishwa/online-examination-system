@@ -75,14 +75,14 @@ $query =
 "
 SELECT online_exam.online_exam_title, DATE_FORMAT(online_exam.online_exam_datetime, '%d-%m-%Y') 
 AS date,online_exam.total_questions,online_exam.passing_score,DATE_FORMAT(online_exam.online_exam_datetime,'%h:%i %p') 
-as starting_time,online_exam.marks_per_wrong_answer,DATE_FORMAT(online_exam.end_time,'%h:%i %p')
+as starting_time,online_exam.marks_per_right_answer,DATE_FORMAT(online_exam.end_time,'%h:%i %p')
  as ending_time,exam_enrollment.*,students.student_id,total_questions*marks_per_right_answer AS maximum_marks 
  from online_exam INNER JOIN exam_enrollment ON online_exam.online_exam_id=exam_enrollment.online_exam_id INNER JOIN 
 students on exam_enrollment.section=students.student_section 
 AND exam_enrollment.year=students.student_year WHERE students.student_id=".$_SESSION['userid']." 
-AND online_exam.online_exam_status='active' AND NOT EXISTS (SELECT result.online_exam_id ,
- result.student_id From result WHERE result.online_exam_id = online_exam.online_exam_id 
- and students.student_id = result.student_id) ORDER BY online_exam.online_exam_datetime ASC
+AND online_exam.online_exam_status='active' AND NOT EXISTS (SELECT attendance.online_exam_id ,
+ attendance.student_id From attendance WHERE attendance.online_exam_id = online_exam.online_exam_id 
+ and students.student_id = attendance.student_id) ORDER BY online_exam.online_exam_datetime ASC
 "; 
 
 $result = mysqli_query($conn, $query); 
@@ -123,7 +123,7 @@ while($row = mysqli_fetch_assoc($result))
                     <div class="row">
                       <div class="col-sm">
                       <p><strong style="color: darkblue;">Total No Of Questions: </strong><?php echo $row['total_questions'];?></p>
-                      <p><strong style="color: darkblue;">Negative Marks: </strong> <?php echo $row['marks_per_wrong_answer'];?></p>
+                      <p><strong style="color: darkblue;">Marks Per Right Answer: </strong> <?php echo $row['marks_per_right_answer'];?></p>
                       </div>
                       <div class="col-sm border-darkblue">
                         <p><strong style="color: darkblue;">Passing Score: </strong> <?php echo $row['passing_score'];?></p>
