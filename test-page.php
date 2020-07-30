@@ -9,6 +9,10 @@ if (!isset($_SESSION["userid"]) && !isset($_SESSION["end_time"]) &&  !isset($_SE
   header('Location: index.html');
   exit();
 }
+if(isset($_SESSION["attendance"])){
+  header('Location:  main.php');
+  exit();
+}
 
 /*
 ! this feature will be used later , for testing purpose its commented
@@ -181,7 +185,31 @@ $end = strtotime($_SESSION["end_time"]);
       
     </div>
 
-
+    <div class="modal fade " id="cheat_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                  <h5 class="modal-title" id="staticBackdropLabel">Alert</h5>
+                  
+                </div>
+                <div class="modal-body text-center">
+                    <img src="6634783.png" alt="" width="200px" height="auto">
+                    <h4 style="color: red;">Malpractice Dedected.</h4>
+                    <div>
+                      <p id = "timer_text" style="font-size: 17px; margin-bottom: 0;">Please Enter Into Full Screen or else Your Response will be Submited In</p>
+                     <p style="font-size: 30px; margin-bottom: 0;"><strong id="cheat_timer">10</strong>s</p> 
+                     <div id="attempts_remaining">
+                      Attempts Remaining: <span id="attempt">3</span>/3 
+                     </div>
+                     <button class="btn btn-danger mt-3" id="full_screen">Full screen</button>
+                    </div>
+                   
+                </div>
+               
+              </div>
+            </div>
+          </div>
+          
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

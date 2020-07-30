@@ -64,6 +64,90 @@ var x = setInterval(function() {
         })
         
     });
+    $("#full_screen").click(function(){
+        $("#cheat_timer").text("10");
+        count = 10;
+        launchIntoFullscreen(document.documentElement);
+        $("#cheat_modal").modal("hide");
+        clearInterval(clock);
+        timer_on = false;
+        
+       
+    });
+     // ! keypress mallpractise
+     document.querySelector('body').onkeydown = function(e) {
+        if (
+            event.keyCode === 18 ||
+            event.keyCode === 17 ||
+            event.keyCode === 16 || 
+            event.keyCode === 9 || 
+            event.keyCode === 27 || 
+            event.keyCode === 91 || 
+            (event.keyCode >= 112 && event.keyCode <= 123)
+            ) 
+            {
+
+                if(!timer_on){
+                    malpractice();
+                    }
+
+        }
+    }
+
+    // ! keypress mallpractise end
+
+
+
+    // ! full screen malpractise
+    $(document).bind('webkitfullscreenchange mozfullscreenchange MSFullscreenChange fullscreenchange', function(e) {
+
+        var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
+        var event = state ? 'FullscreenOn' : 'FullscreenOff';
+
+        if(event == 'FullscreenOff'){
+            if(!timer_on){
+            malpractice();
+            }
+        }
+
+
+    });
+    // ! full screen malpractise end
+    var attempt = 3;
+    var count = 10;
+    var timer_on = false;
+ function timer(){
+        if(count < 1 ){
+            $("#cheat_modal").modal("hide");
+            result_val();
+            clearInterval(clock);
+            
+          }
+          $("#cheat_timer").text(count);
+            count--;
+       
+   
+ }
+    var clock = '' ;
+    function malpractice(){
+        timer_on =true;
+        attempt --;
+        
+        $("#cheat_modal").modal("show");
+         clock = setInterval(timer,1000);
+         if(attempt == -1){
+            $("#timer_text").text("Maximum Number of Attempt Exceeded. Your Response will be Submited In");
+            $("#attempt").text("No More Attempt");
+            $("#attempts_remaining").hide();
+            $("#full_screen").hide();
+
+        }else{
+            $("#timer_text").text("Please Enter Into Full Screen or else Your Response will be Submited In");
+            $("#attempt").text(attempt);
+        }
+        
+    }
+    
 
     function launchIntoFullscreen(element) {
         if(element.requestFullscreen) {
