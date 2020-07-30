@@ -22,6 +22,7 @@ var x = setInterval(function() {
   if (distance < 0) {
     clearInterval(x);
     document.getElementById("countdown").innerHTML = "EXPIRED";
+    //result_val();
   }
 }, 1000);
 
@@ -51,6 +52,16 @@ var x = setInterval(function() {
         $("#instructions").hide();
         $("#nav").show();
         $("#container_question").show();
+        $.ajax({ 
+            url: "attendance.php",
+            type: "POST",
+          
+            success: function(dataResult){
+                console.log("done");
+                
+            }
+           
+        })
         
     });
 
@@ -135,14 +146,34 @@ var x = setInterval(function() {
         }                                                            
     });                                                               
 
-
-    
-
-    $("#final_sub").click(function(){
+function result_val(){
         $("#processing").show();
         $(".heading-hide").show();
         $("#nav").hide();
         $("#container_question").hide();
+    $("#response_result").text("Please Wait For The Process To Be Completed...");
+    $.ajax({ 
+        url: "result_validation.php",
+        type: "POST",
+        data:{
+            response:response,
+            questions:questions
+        },
+      
+        success: function(dataResult){
+            $("#response_result").text(dataResult);
+            $("#result_load").hide();
+            $("#result_btn").show();
+
+        }
+       
+    })
+}
+    
+
+    $("#final_sub").click(function(){
+        
+        result_val();
         
 
     });

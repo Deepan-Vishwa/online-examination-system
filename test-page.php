@@ -112,12 +112,12 @@ $end = strtotime($_SESSION["end_time"]);
 
     <div class="container text-center mt-5" id="processing" style="display:none;">
     <img src="./assets/exam.png" alt="" width="13%" height="auto">
-    <h2>Please Wait For The Process To Be Completed...</h2>
-    <h2 style = "display:none">Respond Recorded Successfully</h2>
-    <div class="spinner-border text-danger" style="width: 3rem; height: 3rem;" role="status">
+    <h2 id="response_result">Please Wait For The Process To Be Completed...</h2>
+   
+    <div id="result_load" class="spinner-border text-danger" style="width: 3rem; height: 3rem;" role="status">
         <span class="sr-only">Loading...</span>
       </div>
-      <button class="btn btn-success mt-3"  style="display:none;" href = "main.php">Go to Home</button>
+      <a id="result_btn" class="btn btn-success mt-3"  style="display:none;" href = "main.php">Go to Home</a>
 </div>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark navbarbg animation a1" id="nav" style="display: none;">
