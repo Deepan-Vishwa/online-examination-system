@@ -92,6 +92,8 @@ if (!isset($_SESSION["userid"])) {
                       <tbody>
 
                       <?php
+                      
+date_default_timezone_set('Asia/Kolkata');
                       $curent_time = date("Y-m-d H:i:s");
                       $query = "
                       SELECT 
@@ -120,7 +122,7 @@ if (!isset($_SESSION["userid"])) {
                               <td><?php echo $row["marks_per_right_answer"]; ?></td>
                               <td><?php echo $row["marks_obtained"]."/".$row["maximum_marks"] ?></td>
                               <td><?php echo $row["percent"]."%" ?></td>
-                              <td><a href="#" class="badge badge-success"><?php echo $row["result_final"]; ?></a></td>
+                              <td><a href="#" class="badge" data-result="<?php echo $row["result_final"]; ?>"><?php echo $row["result_final"]; ?></a></td>
                           </tr>
                          <?php 
                          }
@@ -149,6 +151,29 @@ if (!isset($_SESSION["userid"])) {
 } );
 
 } );
+
+
+
+
+
+$('[data-result]').each(function() {
+
+var $this = $(this),
+result_text = $(this).data('result');
+
+
+if (result_text == "PASS"){
+ $(this).addClass(" badge badge-success");
+}
+else{
+  $(this).addClass(" badge badge-danger");
+  console.log("dai");
+}
+
+
+
+
+});
     </script>  
   </body>
    </html>

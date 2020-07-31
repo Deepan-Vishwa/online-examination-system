@@ -9,9 +9,12 @@ if (!isset($_SESSION["userid"]) && !isset($_SESSION["end_time"]) &&  !isset($_SE
   header('Location: index.html');
   exit();
 }
+if(isset($_SESSION["attendance"])){
+  header('Location:  main.php');
+  exit();
+}
 
-/*
-! this feature will be used later , for testing purpose its commented
+
 date_default_timezone_set('Asia/Kolkata');
 
 $current = strtotime(date("Y-m-d H:i:s"));
@@ -23,7 +26,7 @@ $end = strtotime($_SESSION["end_time"]);
     exit();
   } 
   
-  */
+ 
 
 
 ?>
@@ -62,8 +65,8 @@ $end = strtotime($_SESSION["end_time"]);
            <li class = "mt-3">The exam consists of multiple choice questions and all the questions are compulsory.</li>
            <li class = "mt-3">Exam must be completed within the allotted time frame.</li>
            <li class = "mt-3"><strong>The exam is conducted in full screen mode. So do not try to refresh or minimize your browser once you start the exam.</strong></li>
-           <li class = "mt-3"><strong>Don't use your keyboard during the exam and it will submit your exam automatically</strong></li>
-           <li class = "mt-3">The exam screen will continuously display the remaining time at the top of the question navigaion, eg. <span style="font-size: 1.1vw; font-weight: bold;">Time: <span style="color:red;">00:20:01</span></span></li>
+           <li class = "mt-3"><strong>Don't use Alt,Ctrl,Tab,Shift,Function Keys,Windows keys during the exam and it will submit your exam automatically</strong></li>
+           <li class = "mt-3">The exam screen will continuously display the remaining time at the top of the question navigation, eg. <span style="font-size: 1.1vw; font-weight: bold;">Time: <span style="color:red;">00:20:01</span></span></li>
            <li class = "mt-3">The questions can be answered in any order the candidate may wish to.</li>
            <li class = "mt-3"> You can navigate between questions by clicking on the circle question button on the right side of the screen.</li>
            <li class = "mt-3">
@@ -181,7 +184,31 @@ $end = strtotime($_SESSION["end_time"]);
       
     </div>
 
-
+    <div class="modal fade " id="cheat_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                  <h5 class="modal-title" id="staticBackdropLabel">Alert</h5>
+                  
+                </div>
+                <div class="modal-body text-center">
+                    <img src="6634783.png" alt="" width="200px" height="auto">
+                    <h4 style="color: red;">Malpractice Dedected.</h4>
+                    <div>
+                      <p id = "timer_text" style="font-size: 17px; margin-bottom: 0;">Please Enter Into Full Screen or else Your Response will be Submited In</p>
+                     <p style="font-size: 30px; margin-bottom: 0;"><strong id="cheat_timer">10</strong>s</p> 
+                     <div id="attempts_remaining">
+                      Attempts Remaining: <span id="attempt">3</span>/3 
+                     </div>
+                     <button class="btn btn-danger mt-3" id="full_screen">Full screen</button>
+                    </div>
+                   
+                </div>
+               
+              </div>
+            </div>
+          </div>
+          
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

@@ -8,6 +8,7 @@ if (!isset($_SESSION["userid"])) {
     header('Location: index.html');
     exit();
 }
+$current = date("Y-m-d H:i:s");
 ?>
 
 <!DOCTYPE html>
@@ -75,12 +76,12 @@ $query =
 "
 SELECT online_exam.online_exam_title, DATE_FORMAT(online_exam.online_exam_datetime, '%d-%m-%Y') 
 AS date,online_exam.total_questions,online_exam.passing_score,DATE_FORMAT(online_exam.online_exam_datetime,'%h:%i %p') 
-as starting_time,online_exam.marks_per_right_answer,DATE_FORMAT(online_exam.end_time,'%h:%i %p')
+as starting_time,online_exam.marks_per_right_answer,online_exam.online_exam_datetime,DATE_FORMAT(online_exam.end_time,'%h:%i %p')
  as ending_time,exam_enrollment.*,students.student_id,total_questions*marks_per_right_answer AS maximum_marks 
  from online_exam INNER JOIN exam_enrollment ON online_exam.online_exam_id=exam_enrollment.online_exam_id INNER JOIN 
 students on exam_enrollment.section=students.student_section 
-AND exam_enrollment.year=students.student_year WHERE students.student_id=".$_SESSION['userid']." 
-AND online_exam.online_exam_status='active' AND NOT EXISTS (SELECT attendance.online_exam_id ,
+AND exam_enrollment.year=students.student_year WHERE students.student_id=".$_SESSION['userid']. "
+AND online_exam.online_exam_status='active' AND online_exam.end_time > '".$current."' AND NOT EXISTS (SELECT attendance.online_exam_id ,
  attendance.student_id From attendance WHERE attendance.online_exam_id = online_exam.online_exam_id 
  and students.student_id = attendance.student_id) ORDER BY online_exam.online_exam_datetime ASC
 "; 
@@ -138,7 +139,8 @@ while($row = mysqli_fetch_assoc($result))
                    
        
                   <div class="container mt-3 d-flex justify-content-center align-items-center">
-                    <button  class="btn cardheaderbg text-white mt-2 float-right startbtn" data-online_exam_id ="<?php echo $row['online_exam_id'];?>"  id="main_start-<?php echo $row['online_exam_id'];?>">Start</button>
+                    <button style="display:none;"  class="btn cardheaderbg text-white mt-2 float-right startbtn" data-online_exam_id ="<?php echo $row['online_exam_id'];?>"  id="main_start-<?php echo $row['online_exam_id'];?>">Start</button>
+                    <p class="text-center" data-btnid="main_start-<?php echo $row['online_exam_id'];?>" data-countdown="<?php echo $row['online_exam_datetime']; ?>" id="start_timer_<?php echo $row['online_exam_id'];?>"></p>
                 </div>
             </div>
           </div>
@@ -172,45 +174,16 @@ while($row = mysqli_fetch_assoc($result))
           </div>
         </div>
       </div>
-    <script>
-      $(document).ready(function(){
-       
-        $(".startbtn").click(function(e){
-          var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    var element = document.getElementById('text');
-    if (isMobile) {
-        $('#alert-modal').modal('show')
-    } else {
-
-          var idClicked = e.target.id;
-         var online_exam_id = $(`#${idClicked}`).data("online_exam_id");
-         $(`#${idClicked}`).attr("disabled",true);
-    $(`#${idClicked}`).html('<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" id="load"></span>Please wait...');
-   
-         $.ajax({ // hey go to test.php and get me whatever its printed there 
-            url: "main.php",
-            type: "POST",
-            data:{
-              online_exam_id:online_exam_id
-            },
-            success: function(dataResult){
-              console.log(online_exam_id);
-              window.location.href="test-page.php";
-            }
-           
-        })
-      }
-
-         
-        });
-
-      });
-    </script>
+    <script src="./js/main.js"></script>
 
 </body>
 </html>
 <?php
+if(isset($_SESSION["attendance"])){
 
+  unset($_SESSION["attendance"]);
+
+}
 if(isset($_POST["online_exam_id"])){
   session_start();
             $_SESSION['online_exam_id'] = $_POST["online_exam_id"];
