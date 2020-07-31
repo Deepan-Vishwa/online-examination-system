@@ -21,8 +21,8 @@ var x = setInterval(function() {
 
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("countdown").innerHTML = "EXPIRED";
-    //result_val();
+    //document.getElementById("countdown").innerHTML = "EXPIRED";
+    result_val();
   }
 }, 1000);
 
