@@ -5,8 +5,8 @@ include 'config.php';
 date_default_timezone_set('Asia/Kolkata');
 $current = strtotime(date("Y-m-d H:i:s"));
 $current_time_stamp = date("Y-m-d H:i:s");
-// $end = strtotime($_SESSION["end_time"]);
-$end = strtotime('2020-07-31 20:00:00');
+ $end = strtotime($_SESSION["end_time"]);
+//$end = strtotime('2020-07-31 20:00:00');
 
 if($current >= $end){
     echo "Time out - This may caused because you taken more time then alloted time if this is our mistake contact admin";
