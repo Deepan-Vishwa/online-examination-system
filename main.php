@@ -8,6 +8,7 @@ if (!isset($_SESSION["userid"])) {
     header('Location: index.html');
     exit();
 }
+date_default_timezone_set('Asia/Kolkata');
 $current = date("Y-m-d H:i:s");
 ?>
 
