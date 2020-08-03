@@ -96,7 +96,13 @@ var x = setInterval(function() {
 
     // ! keypress mallpractise end
 
+    // ! screen out of focus
 
+    $(window).blur(function() {
+        if(!timer_on){
+            malpractice();
+            }
+    });
 
     // ! full screen malpractise
     $(document).bind('webkitfullscreenchange mozfullscreenchange MSFullscreenChange fullscreenchange', function(e) {
