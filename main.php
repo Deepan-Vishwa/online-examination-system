@@ -108,7 +108,7 @@ while($row = mysqli_fetch_assoc($result))
  
    
 
-         echo "<div class='card m-3 border border-primary animation' style = '-webkit-animation-delay:".$i."s';
+         echo "<div class='card m-3 border border-primary animation shadow-lg bg-white' style = '-webkit-animation-delay:".$i."s';
             animation-delay:".$i.";>";
             ?>
             <div class="card-header d-flex justify-content-between align-items-center cardheaderbg text-white">
