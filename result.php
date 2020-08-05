@@ -96,19 +96,40 @@ if (!isset($_SESSION["userid"])) {
 date_default_timezone_set('Asia/Kolkata');
                       $curent_time = date("Y-m-d H:i:s");
                       $query = "
-                      SELECT 
-                      online_exam.online_exam_title,
-                      DATE_FORMAT(online_exam.online_exam_datetime, '%d-%m-%Y') AS date,
-                      online_exam.passing_score
-                      ,online_exam.marks_per_right_answer,
-                      online_exam.total_questions*online_exam.marks_per_right_answer as maximum_marks,
-                      result.marks_obtained,
-                      TRUNCATE((result.marks_obtained/(online_exam.total_questions*online_exam.marks_per_right_answer)) *100,0) as percent,
-                      IF(result.marks_obtained>= online_exam.passing_score ,'PASS','FAIL') as result_final
-
-                      FROM online_exam INNER JOIN result on
-
-                      online_exam.online_exam_id = result.online_exam_id where online_exam.end_time <='".$curent_time."'  And result.student_id =".$_SESSION['userid']." ORDER BY online_exam.end_time ASC";
+                      SELECT
+    online_exam.online_exam_title,
+      students.student_id,
+    DATE_FORMAT(
+        online_exam.online_exam_datetime,
+        '%d-%m-%Y'
+    ) AS date,
+    online_exam.passing_score,
+    online_exam.marks_per_right_answer,
+    online_exam.total_questions*online_exam.marks_per_right_answer as maximum_marks,
+    result.marks_obtained,
+    TRUNCATE
+    (
+        (
+            result.marks_obtained /(
+                online_exam.total_questions * online_exam.marks_per_right_answer
+            )
+        ) * 100,
+        0
+    ) AS percent,
+    (CASE
+    WHEN result.marks_obtained >= online_exam.passing_score THEN 'PASS'
+      WHEN result.marks_obtained IS NULL THEN 'ABSENT'
+    ELSE 'FAIL'
+     END
+    ) as result_final
+    
+    
+FROM
+    online_exam
+INNER JOIN exam_enrollment ON online_exam.online_exam_id = exam_enrollment.online_exam_id
+INNER JOIN students ON exam_enrollment.section = students.student_section AND exam_enrollment.year = students.student_year LEFT JOIN result on online_exam.online_exam_id = result.online_exam_id
+where online_exam.end_time <= '".$curent_time."'
+  And students.student_id = ".$_SESSION["userid"]." ORDER BY online_exam.end_time ASC";
 
                       $result = mysqli_query($conn, $query); 
             
@@ -120,8 +141,28 @@ date_default_timezone_set('Asia/Kolkata');
                               <td><?php echo $row["date"]; ?></td>
                               <td><?php echo $row["passing_score"]; ?></td>
                               <td><?php echo $row["marks_per_right_answer"]; ?></td>
-                              <td><?php echo $row["marks_obtained"]."/".$row["maximum_marks"] ?></td>
-                              <td><?php echo $row["percent"]."%" ?></td>
+                              <td>
+                              <?php
+                              if(is_null($row['marks_obtained']))
+                              {
+                                echo "NULL";
+                              }
+                              else{
+                              
+                              echo $row["marks_obtained"]."/".$row["maximum_marks"] ;
+                            }
+                              ?>
+                              </td>
+                              <td><?php
+                              if(is_null($row['percent']))
+                              {
+                                echo "NULL";
+                              }
+                              else{
+                              echo $row["percent"]."%" ;
+                              }
+                              ?>
+                              </td>
                               <td><a href="#" class="badge" data-result="<?php echo $row["result_final"]; ?>"><?php echo $row["result_final"]; ?></a></td>
                           </tr>
                          <?php 
@@ -164,6 +205,9 @@ result_text = $(this).data('result');
 
 if (result_text == "PASS"){
  $(this).addClass(" badge badge-success");
+}
+else if (result_text == "ABSENT"){
+ $(this).addClass(" badge badge-warning");
 }
 else{
   $(this).addClass(" badge badge-danger");

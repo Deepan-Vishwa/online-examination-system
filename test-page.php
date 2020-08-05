@@ -95,6 +95,7 @@ $end = strtotime($_SESSION["end_time"]);
            <li class = "mt-3"> Make sure you have a good internet connection.</li>
            <li class = "mt-3">You are not permitted to take the Exam on mobile phones,smart watches or anyother electronic gadgets.</li>
            <li class = "mt-3">You are permitted to write only one exam at a time.</li>
+           <li class = "mt-3">Result Will be Posted Only After Exam End Time</li>
 
        </ul>
        
@@ -192,7 +193,7 @@ $end = strtotime($_SESSION["end_time"]);
                   
                 </div>
                 <div class="modal-body text-center">
-                    <img src="6634783.png" alt="" width="200px" height="auto">
+                    <img src="./assets/6634783.png" alt="" width="200px" height="auto">
                     <h4 style="color: red;">Malpractice Dedected.</h4>
                     <div>
                       <p id = "timer_text" style="font-size: 17px; margin-bottom: 0;">Please Enter Into Full Screen or else Your Response will be Submited In</p>
@@ -200,7 +201,7 @@ $end = strtotime($_SESSION["end_time"]);
                      <div id="attempts_remaining">
                       Attempts Remaining: <span id="attempt">3</span>/3 
                      </div>
-                     <button class="btn btn-danger mt-3" id="full_screen">Full screen</button>
+                     <button class="btn btn-danger mt-3" id="full_screen">Continue</button>
                     </div>
                    
                 </div>

@@ -45,8 +45,9 @@ var x = setInterval(function() {
         return temp;
 
     }();
-
+var test_live = false;
     $("#start").click(function(){
+test_live =true;
         launchIntoFullscreen(document.documentElement);
         $(".heading-hide").hide();
         $("#instructions").hide();
@@ -87,7 +88,7 @@ var x = setInterval(function() {
             ) 
             {
 
-                if(!timer_on){
+                if(!timer_on && test_live){
                     malpractice();
                     }
 
@@ -99,7 +100,7 @@ var x = setInterval(function() {
     // ! screen out of focus
 
     $(window).blur(function() {
-        if(!timer_on){
+        if(!timer_on && test_live){
             malpractice();
             }
     });
@@ -111,7 +112,7 @@ var x = setInterval(function() {
         var event = state ? 'FullscreenOn' : 'FullscreenOff';
 
         if(event == 'FullscreenOff'){
-            if(!timer_on){
+            if(!timer_on && test_live){
             malpractice();
             }
         }
@@ -148,7 +149,7 @@ var x = setInterval(function() {
             $("#full_screen").hide();
 
         }else{
-            $("#timer_text").text("Please Enter Into Full Screen or else Your Response will be Submited In");
+            $("#timer_text").text("Should Not Exit Full Screen or Click Alt,Tab,Shift,Ctrl,Windows,Function Keys,Exit keys");
             $("#attempt").text(attempt);
         }
         
@@ -237,6 +238,8 @@ var x = setInterval(function() {
     });                                                               
 
 function result_val(){
+    test_live = false;
+    $("#staticBackdrop").modal("hide");
         $("#processing").show();
         $(".heading-hide").show();
         $("#nav").hide();
