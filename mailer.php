@@ -1,13 +1,14 @@
 <?php 
 include 'config.php';
+include 'mail_sender.php';
 extract($_POST);
 session_start();
 
         if($action == "login_mail"){
 
-         $to = "kiruthigait2000@gmail.com,srdeepansr@gmail.com,gayathriartist2000@gmail.com";
-         $subject = "Login Help";
-         $message = 
+            $mail->addAddress('srdeepansr@gmail.com', 'Deepan');
+            $mail->Subject = "Login Help";
+            $mail->Body =
          '
         
          <style>
@@ -47,14 +48,13 @@ session_start();
         
          ';
         
-         $header = "MIME-Version: 1.0\r\n";
-         $header .= "Content-type: text/html\r\n";
-         $header  .= 'From:KDSG Examination System'."\r\n";
-         if(mail ($to,$subject,$message,$header)) {
-            echo "Message sent successfully...";
-         }else {
-            echo "Message could not be sent...";
-         }
+      
+         if(!$mail->send()) {
+            echo 'Message could not be sent.';
+        } else {
+            echo 'Message has been sent';
+        }
+        
         }
 
     if($action == "main_mail"){
@@ -70,9 +70,9 @@ session_start();
         }
         
 
-        $to ="kiruthigait2000@gmail.com,srdeepansr@gmail.com,gayathriartist2000@gmail.com";
-         $subject = "Student Help Request";
-         $message = 
+        $mail->addAddress('srdeepansr@gmail.com', 'Deepan');
+        $mail->Subject =  "Student Help Request";
+        $mail->Body =
          '
         
          <style>
@@ -119,15 +119,12 @@ session_start();
         </table>
         
          ';
-        
-         $header = "MIME-Version: 1.0\r\n";
-         $header .= "Content-type: text/html\r\n";
-         $header  .= 'From:KDSG Examination System'."\r\n";
-         if(mail ($to,$subject,$message,$header)) {
-            echo "Message sent successfully...";
-         }else {
-            echo "Message could not be sent...";
-         }
+         if(!$mail->send()) {
+            echo 'Message could not be sent.';
+        } else {
+            echo 'Message has been sent';
+        }
+         
     }
 
 ?>
