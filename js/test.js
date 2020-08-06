@@ -238,6 +238,8 @@ test_live =true;
     });                                                               
 
 function result_val(){
+    console.log(response);
+    console.log(questions);
     test_live = false;
     $("#staticBackdrop").modal("hide");
         $("#processing").show();

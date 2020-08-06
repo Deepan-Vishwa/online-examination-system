@@ -20,14 +20,10 @@ if (!isset($_SESSION["userid"])) {
     <link rel="stylesheet" href="./css/result.css">
     <link rel="stylesheet" href="./css/animation.css">
     <script src="https://kit.fontawesome.com/57c22c66dc.js" crossorigin="anonymous"></script>
-
     <link href=  "https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet"> 
-<link href=  "https://cdn.datatables.net/rowreorder/1.2.7/css/rowReorder.dataTables.min.css" rel="stylesheet"> 
-<link href=  "https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css" rel="stylesheet"> 
-
+    <link href=  "https://cdn.datatables.net/rowreorder/1.2.7/css/rowReorder.dataTables.min.css" rel="stylesheet"> 
+    <link href=  "https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css" rel="stylesheet"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Lobster&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&family=Playfair+Display&display=swap" rel="stylesheet">     
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
    
@@ -36,7 +32,7 @@ if (!isset($_SESSION["userid"])) {
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark navbarbg " id="nav">
-           <a class="navbar-brand" style="font-family: 'Baloo Bhai 2', cursive;" href="main.php">KDSG</a>
+           <a class="navbar-brand" href="main.php">KDSG</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -128,7 +124,7 @@ FROM
     online_exam
 INNER JOIN exam_enrollment ON online_exam.online_exam_id = exam_enrollment.online_exam_id
 INNER JOIN students ON exam_enrollment.section = students.student_section AND exam_enrollment.year = students.student_year LEFT JOIN result on online_exam.online_exam_id = result.online_exam_id
-where online_exam.end_time <= '".$curent_time."'
+AND students.student_id = result.student_id where online_exam.end_time <= '".$curent_time."'
   And students.student_id = ".$_SESSION["userid"]." ORDER BY online_exam.end_time ASC";
 
                       $result = mysqli_query($conn, $query); 
