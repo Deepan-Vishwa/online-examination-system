@@ -10,8 +10,8 @@ body{
 }
 .h1title{
     color: darkblue;
-    font-family: 'Playfair Display', serif;
     font-size:  3vw;
+    font-family: 'Playfair Display', serif;
 }
 .info-container{
     margin-top: 1%;
@@ -71,11 +71,10 @@ body{
 @media screen and (max-width: 800px) {
   .h1title{
     font-size: 5.5vw;
-    font-weight: bold;
+    
 }
 .subtitle{
   
-    font-family: 'Playfair Display', serif;
     font-size:  5vw;
 }
  
