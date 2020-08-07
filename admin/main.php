@@ -1,3 +1,10 @@
+<?php 
+session_start();
+extract($_POST);
+date_default_timezone_set('Asia/Kolkata');
+include '../config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,7 +42,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading pb-0">Core</div>
-                            <a class="nav-link pb-1" href="index.html">
+                            <a class="nav-link pb-1" href="main.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i>
                                 </div>
                                 Dashboard
@@ -112,17 +119,40 @@
                                         </thead>
                                         
                                         <tbody>
+                                            <?php
+                                            $query="SELECT `online_exam_title`,
+                                            DATE_FORMAT(`online_exam_datetime`, '%d-%m-%Y') as date,
+                                            DATE_FORMAT(`online_exam_datetime`,'%h:%i %p') as starting_time,
+                                            DATE_FORMAT(`end_time`,'%h:%i %p') as ending_time,
+                                            `total_questions`,
+                                            `marks_per_right_answer`,
+                                            `passing_score`,
+                                            DATE_FORMAT(`exam_created_on`, '%d-%m-%Y') as created_date,
+                                            `online_exam_status`,
+                                            `online_exam_code` FROM `online_exam`";
+                                            $result = mysqli_query($conn, $query); 
+            
+                                            while($row = mysqli_fetch_assoc($result))
+                                            {
+
+                                            ?>
                                             
                                             <tr>
-                                                <td>Shad Decker</td>
-                                                <td>Regional Director</td>
-                                                <td>Edinburgh</td>
-                                                <td>51</td>
-                                                <td>2008/11/13</td>
-                                                <td>$183,000</td>
+                                                <td><?php echo ucwords($row['online_exam_title'],' '); ?></td>
+                                                <td><?php echo $row['date']; ?></td>
+                                                <td><?php echo $row['starting_time']." to ".$row['ending_time']; ?></td>
+                                                <td><?php echo $row['total_questions']; ?></td>
+                                                <td><?php echo $row['marks_per_right_answer']; ?></td>
+                                                <td><?php echo $row['passing_score']; ?></td>
+                                                <td><?php echo $row['created_date']; ?></td>
+                                                <td><?php echo $row['online_exam_status']; ?></td>
+                                                <td><?php echo $row['online_exam_code'];?></td>
                                             </tr>
-                                            
+                                            <?php 
+                                            }
+                                            ?>
                                         </tbody>
+                                        
                                     </table>
                                 
                     </div>
