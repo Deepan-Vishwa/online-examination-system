@@ -184,6 +184,7 @@ AND students.student_id = result.student_id where online_exam.end_time <= '".$cu
   "lengthMenu": [ [5, 10, 25, -1], [5, 10, 25, "All"] ],
  
         responsive: true,
+        "aaSorting": []
        
 } );
 
