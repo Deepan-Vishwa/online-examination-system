@@ -21,7 +21,7 @@ include '../config.php';
 
     </head>
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="background-color: darkblue !important;">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="background-color: #1a1a49 !important;">
             
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <a class="navbar-brand ml-auto" href="index.html">KDSG Examination System Admin</a>
@@ -38,7 +38,7 @@ include '../config.php';
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" style="background-color: navy !important;" id="sidenavAccordion">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" style="background-color: #0e3964 !important;" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading pb-0">Core</div>
@@ -86,7 +86,7 @@ include '../config.php';
                            
                         </div>
                     </div>
-                    <div class="sb-sidenav-footer" style="background-color: darkblue;">
+                    <div class="sb-sidenav-footer" style="background-color: #040432;">
                         <div class="small">Logged in as:</div>
                        Deepan Vishwa
                     </div>
