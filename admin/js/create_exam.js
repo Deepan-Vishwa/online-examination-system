@@ -1,5 +1,4 @@
 function render_questions() {
-  console.log("hi");
   no_of_questions_to_render = $("#no_of_questions").val().trim();
   var render = "";
   for (let i = 0; i < no_of_questions_to_render; i++) {
@@ -8,7 +7,7 @@ function render_questions() {
     <div class="form-row">
         <div class="col-md-12 mb-3">
             <label for="exam_title">Question No ${i + 1}</label>
-            <textarea class="form-control"></textarea>
+            <textarea class="form-control" name="question"></textarea>
         </div>
     </div>
 
@@ -24,8 +23,8 @@ function render_questions() {
                     </button>
                 </div>
                 <div class="card-body">
-                    <input type="text" class="form-control mb-3">
-                    <input type="text" class="form-control mb-3">
+                    <input type="text" class="form-control mb-3" name="options">
+                    <input type="text" class="form-control mb-3" name="options">
 
                 </div>
             </div>
@@ -34,7 +33,7 @@ function render_questions() {
             <div class="input-group-prepend">
                 <label class="input-group-text">Answer</label>
             </div>
-            <select class="custom-select select_answer">
+            <select class="custom-select select_answer" name="answer">
 
             </select>
         </div>
@@ -89,13 +88,13 @@ $(document).ready(function () {
   $(document).on("click", ".add_options", function () {
     // Selected all add butons
     //console.log($(this).parent().siblings());
-    console.log($(this).parents().eq(2).siblings());
+
     var div = $("<div />"); // creating a div tag
     div.addClass("input-group mb-3"); // adding class to that created div tag
     div.html(
       // set of html code for that textbox with remove button
       ' <input type="text" class="form-control"' +
-        'aria-describedby="button-addon2">' +
+        'aria-describedby="button-addon2" name="options">' +
         '<div class="input-group-append">' +
         ' <button class="btn btn-outline-secondary remove" type="button"' +
         '><i class="fas fa-times"></i>' +
@@ -127,4 +126,80 @@ $(document).ready(function () {
       });
     $(this).html(options);
   });
+  var exam_details = {};
+  var questions = [];
+  var options = [];
+  $(document).on("click", "#submit_form", function () {
+    var exam_details_unindexed_array = $("#exam_details_form").serializeArray();
+
+    $.map(exam_details_unindexed_array, function (n, i) {
+      if (i < 7) {
+        exam_details[n["name"]] = n["value"];
+      }
+    });
+    console.log(exam_details);
+    get_questions();
+  });
+
+  function get_questions() {
+    for (let i = 0; i < $("#prepare_questions").children().length; i++) {
+      questions.push({
+        question_title: $("#prepare_questions")
+          .children()
+          .eq(i)
+          .children()
+          .children()
+          .find("textarea")
+          .val(),
+        answer: $("#prepare_questions")
+          .children()
+          .eq(1)
+          .children()
+          .children()
+          .find("select")
+          .val(),
+      });
+    }
+    console.log(questions);
+    get_options();
+  }
+  function get_options() {
+    for (let i = 0; i < $("#prepare_questions").children().length; i++) {
+      temp_options = [];
+      for (
+        let j = 0;
+        j <
+        $("#prepare_questions")
+          .children()
+          .eq(i)
+          .children()
+          .children()
+          .eq(1)
+          .children()
+          .children()
+          .eq(1)
+          .find("input[type = text]").length;
+        j++
+      ) {
+        temp_options.push(
+          $("#prepare_questions")
+            .children()
+            .eq(i)
+            .children()
+            .children()
+            .eq(1)
+            .children()
+            .children()
+            .eq(1)
+            .find("input[type = text]")
+            .eq(j)
+            .val()
+        );
+      }
+      options.push({
+        option: temp_options,
+      });
+    }
+    console.log(options);
+  }
 });

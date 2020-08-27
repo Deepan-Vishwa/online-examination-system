@@ -15,7 +15,7 @@ include '../config.php';
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>KDSG Admin</title>
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href=".css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
         crossorigin="anonymous" />
     <link href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css" rel="stylesheet">
@@ -114,17 +114,20 @@ include '../config.php';
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="exam_title">Exam Title</label>
-                                        <input type="text" class="form-control" id="exam_title" required>
+                                        <input type="text" class="form-control" id="exam_title" name="exam_title"
+                                            required>
 
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="start_date">Start Date & Time</label>
-                                        <input type="datetime-local" class="form-control" id="start_date" required>
+                                        <input type="datetime-local" class="form-control" id="start_date"
+                                            name="start_date" required>
 
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="end_date">End Date & Time</label>
-                                        <input type="datetime-local" class="form-control" id="end_date" required>
+                                        <input type="datetime-local" class="form-control" id="end_date" name="end_date"
+                                            required>
 
                                     </div>
                                 </div>
@@ -133,24 +136,26 @@ include '../config.php';
                                     <div class="col-md-3 mb-3">
                                         <label for="validationCustom03">Total No of Questions</label>
                                         <input type="number" min="0" class="form-control" id="no_of_questions"
-                                            onchange="render_questions()" required>
+                                            onchange="render_questions()" name="no_of_questions" required>
 
 
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationCustom03">Marks Per Right Answer</label>
                                         <input type="number" min="1" class="form-control" id="marks_per_answer"
-                                            required>
+                                            name="marks_per_answer" required>
 
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationCustom03">Passing Mark</label>
-                                        <input type="number" min="1" class="form-control" id="passing_mark" required>
+                                        <input type="number" min="1" class="form-control" id="passing_mark"
+                                            name="passing_mark" required>
 
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationCustom05">Exam Code</label>
-                                        <input type="text" class="form-control" id="exam_code" required>
+                                        <input type="text" class="form-control" id="exam_code" name="exam_code"
+                                            required>
 
                                     </div>
                                 </div>
@@ -358,7 +363,7 @@ include '../config.php';
                                 <hr style="border: 1px solid grey">
                                 <button class="btn btn-danger float-left mb-3" id="back_questions" type="button">Back
                                 </button>
-                                <button class="btn btn-success float-right mb-3" type="button">Next
+                                <button class="btn btn-success float-right mb-3" type="button" id="submit_form">Next
                                 </button>
                             </div>
 
