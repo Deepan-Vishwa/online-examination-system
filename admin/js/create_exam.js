@@ -7,7 +7,7 @@ function render_questions() {
     <div class="form-row">
         <div class="col-md-12 mb-3">
             <label for="exam_title">Question No ${i + 1}</label>
-            <textarea class="form-control" name="question"></textarea>
+            <textarea class="form-control" name="question" required></textarea>
         </div>
     </div>
 
@@ -23,8 +23,8 @@ function render_questions() {
                     </button>
                 </div>
                 <div class="card-body">
-                    <input type="text" class="form-control mb-3" name="options">
-                    <input type="text" class="form-control mb-3" name="options">
+                    <input type="text" class="form-control mb-3" name="options" required>
+                    <input type="text" class="form-control mb-3" name="options" required>
 
                 </div>
             </div>
@@ -33,7 +33,7 @@ function render_questions() {
             <div class="input-group-prepend">
                 <label class="input-group-text">Answer</label>
             </div>
-            <select class="custom-select select_answer" name="answer">
+            <select class="custom-select select_answer" name="answer" required>
 
             </select>
         </div>
@@ -70,9 +70,13 @@ $(document).ready(function () {
       exam_code != ""
     ) {
       $("#exam_details_form").removeClass("was-validated");
-      $("#exam_details, #exam_table").fadeOut();
 
-      $("#prepare_questions, #button_control").fadeIn();
+      $('#exam_details, #exam_table').hide("slide", {
+        direction: "left"
+    }, 700);
+    $('#prepare_questions, #button_control').show("slide", {
+        direction: "right"
+    }, 700);
     } else {
       $("#exam_details_form").addClass("was-validated");
     }
@@ -80,10 +84,54 @@ $(document).ready(function () {
 
   $("#back_questions").click(function () {
     $("#exam_details_form").removeClass("was-validated");
-    $("#exam_details, #exam_table").fadeIn();
 
-    $("#prepare_questions, #button_control").fadeOut();
+
+    $('#prepare_questions, #button_control').hide("slide", {
+      direction: "right"
+  }, 700);
+  $('#exam_details, #exam_table').show("slide", {
+      direction: "left"
+  }, 700);
   });
+  
+  $("#next_question").click(function () {
+    
+    var notempty = "yes";
+    $("#prepare_questions").find("textarea, :text, select").each(function(){
+
+      if($(this).val()==""){
+        notempty = "no";
+        
+      }
+    });
+    console.log(notempty);
+
+    if(notempty == "yes"){
+     
+      $('#prepare_questions, #button_control').hide("slide", {
+        direction: "left"
+    }, 700);
+    $('#enrollment, #button_control_enrollment').show("slide", {
+        direction: "right"
+    }, 700);
+    }
+    else if(notempty == "no"){
+      $("#exam_details_form").addClass("was-validated");
+    }
+
+    
+  });
+
+  $("#back_enrollment").click(function () {
+    $('#enrollment , #button_control_enrollment').hide("slide", {
+      direction: "right"
+  }, 700);
+  $('#prepare_questions, #button_control').show("slide", {
+      direction: "left"
+  }, 700);
+  });
+
+
 
   $(document).on("click", ".add_options", function () {
     // Selected all add butons
@@ -94,7 +142,7 @@ $(document).ready(function () {
     div.html(
       // set of html code for that textbox with remove button
       ' <input type="text" class="form-control"' +
-        'aria-describedby="button-addon2" name="options">' +
+        'aria-describedby="button-addon2" name="options" required>' +
         '<div class="input-group-append">' +
         ' <button class="btn btn-outline-secondary remove" type="button"' +
         '><i class="fas fa-times"></i>' +
@@ -129,9 +177,14 @@ $(document).ready(function () {
   var exam_details = {};
   var questions = [];
   var options = [];
+  var status = "inactive";
   $(document).on("click", "#submit_form", function () {
     var exam_details_unindexed_array = $("#exam_details_form").serializeArray();
+    
+    if($("#activate_toggle").prop("checked") == true){
+      status = "active"
 
+    }
     $.map(exam_details_unindexed_array, function (n, i) {
       if (i < 7) {
         exam_details[n["name"]] = n["value"];
@@ -140,6 +193,8 @@ $(document).ready(function () {
     console.log(exam_details);
     get_questions();
   });
+
+
 
   function get_questions() {
     for (let i = 0; i < $("#prepare_questions").children().length; i++) {
@@ -153,7 +208,7 @@ $(document).ready(function () {
           .val(),
         answer: $("#prepare_questions")
           .children()
-          .eq(1)
+          .eq(i)
           .children()
           .children()
           .find("select")
@@ -201,5 +256,21 @@ $(document).ready(function () {
       });
     }
     console.log(options);
+    send_to_php();
+  }
+
+  function send_to_php() {
+    $.ajax({
+      url: "insert_exam.php",
+      type: "POST",
+      data: {
+        exam_details: JSON.stringify(exam_details),
+        questions: JSON.stringify(questions),
+        options: JSON.stringify(options),
+      },
+      success: function (dataResult) {
+        console.log(dataResult);
+      },
+    });
   }
 });

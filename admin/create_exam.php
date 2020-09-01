@@ -15,11 +15,18 @@ include '../config.php';
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>KDSG Admin</title>
-    <link href=".css/styles.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
         crossorigin="anonymous" />
     <link href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/simTree.css">
+
     <script src="https://kit.fontawesome.com/57c22c66dc.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+
+    
+    
+
 </head>
 
 <body class="sb-nav-fixed">
@@ -168,205 +175,48 @@ include '../config.php';
 
                             <div class="container-fluid m-0 p-0" id="prepare_questions" style="display: none;">
                                 <h4>Prepare Questions</h4>
-                                <!-- <div class="container-fluid p-0 m-0">
-                                    <hr style="border: 1px solid grey">
-                                    <div class="form-row">
-                                        <div class="col-md-12 mb-3">
-                                            <label for="exam_title">Question No 1</label>
-                                            <textarea class="form-control"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col-md-7 mb-3">
-                                            <div class="card">
-                                                <div class="card-header d-flex justify-content-between ">
-                                                    <div>
-                                                        Options
-                                                    </div>
-                                                    <button class="badge badge-dark add_options" type="button">
-                                                        <i class="fas fa-plus-circle"> ADD</i>
-                                                    </button>
-                                                </div>
-                                                <div class="card-body">
-                                                    <input type="text" class="form-control mb-3">
-                                                    <input type="text" class="form-control mb-3">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="input-group mb-3 mt-0 col-md-7">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text">Answer</label>
-                                            </div>
-                                            <select class="custom-select select_answer">
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div> -->
-
-                                <!-- <div class="container-fluid p-0 m-0">
-                                    <hr style="border: 1px solid grey">
-                                    <div class="form-row">
-                                        <div class="col-md-12 mb-3">
-                                            <label for="exam_title">Question No 2</label>
-                                            <textarea class="form-control"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col-md-7 mb-3">
-                                            <div class="card">
-                                                <div class="card-header d-flex justify-content-between ">
-                                                    <div>
-                                                        Options
-                                                    </div>
-                                                    <button class="badge badge-dark add_options" type="button">
-                                                        <i class="fas fa-plus-circle"> ADD</i>
-                                                    </button>
-                                                </div>
-                                                <div class="card-body">
-                                                    <input type="text" class="form-control mb-3">
-                                                    <input type="text" class="form-control mb-3">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="input-group mb-3 mt-0 col-md-7">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text">Answer</label>
-                                            </div>
-                                            <select class="custom-select select_answer">
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="container-fluid p-0 m-0">
-                                    <hr style="border: 1px solid grey">
-                                    <div class="form-row">
-                                        <div class="col-md-12 mb-3">
-                                            <label for="exam_title">Question No 3</label>
-                                            <textarea class="form-control"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col-md-7 mb-3">
-                                            <div class="card">
-                                                <div class="card-header d-flex justify-content-between ">
-                                                    <div>
-                                                        Options
-                                                    </div>
-                                                    <button class="badge badge-dark add_options" type="button">
-                                                        <i class="fas fa-plus-circle"> ADD</i>
-                                                    </button>
-                                                </div>
-                                                <div class="card-body">
-                                                    <input type="text" class="form-control mb-3">
-                                                    <input type="text" class="form-control mb-3">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="input-group mb-3 mt-0 col-md-7">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text">Answer</label>
-                                            </div>
-                                            <select class="custom-select select_answer">
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="container-fluid p-0 m-0">
-                                    <hr style="border: 1px solid grey">
-                                    <div class="form-row">
-                                        <div class="col-md-12 mb-3">
-                                            <label for="exam_title">Question No 4</label>
-                                            <textarea class="form-control"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col-md-7 mb-3">
-                                            <div class="card">
-                                                <div class="card-header d-flex justify-content-between ">
-                                                    <div>
-                                                        Options
-                                                    </div>
-                                                    <button class="badge badge-dark add_options" type="button">
-                                                        <i class="fas fa-plus-circle"> ADD</i>
-                                                    </button>
-                                                </div>
-                                                <div class="card-body">
-                                                    <input type="text" class="form-control mb-3">
-                                                    <input type="text" class="form-control mb-3">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="input-group mb-3 mt-0 col-md-7">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text">Answer</label>
-                                            </div>
-                                            <select class="custom-select select_answer">
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="container-fluid p-0 m-0">
-                                    <hr style="border: 1px solid grey">
-                                    <div class="form-row">
-                                        <div class="col-md-12 mb-3">
-                                            <label for="exam_title">Question No 5</label>
-                                            <textarea class="form-control"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col-md-7 mb-3">
-                                            <div class="card">
-                                                <div class="card-header d-flex justify-content-between ">
-                                                    <div>
-                                                        Options
-                                                    </div>
-                                                    <button class="badge badge-dark add_options" type="button">
-                                                        <i class="fas fa-plus-circle"> ADD</i>
-                                                    </button>
-                                                </div>
-                                                <div class="card-body">
-                                                    <input type="text" class="form-control mb-3">
-                                                    <input type="text" class="form-control mb-3">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="input-group mb-3 mt-0 col-md-7">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text">Answer</label>
-                                            </div>
-                                            <select class="custom-select select_answer">
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div> -->
+                               
 
                             </div>
                             <div class="container-fluid m-0 p-0" id="button_control" style="display: none;">
                                 <hr style="border: 1px solid grey">
                                 <button class="btn btn-danger float-left mb-3" id="back_questions" type="button">Back
                                 </button>
-                                <button class="btn btn-success float-right mb-3" type="button" id="submit_form">Next
+                                <button class="btn btn-success float-right mb-3" type="button" id="next_question">Next
                                 </button>
                             </div>
+                            <div class="container-fluid m-0 p-0" id="enrollment" style="display: none;">
+                                <h4>
+                                    Enrollment
+                                </h4>
+                                <div class="container-fluid m-0 p-0">
+                                <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">Select the Students Set</h6>
+                                    <div id="tree"></div>
+                
+                                    <h6 class="card-title pb-0 mb-0">Do You want To Activate this Exam Now ?</h6>
+                                    <small class="form-text text-muted pb-2 mt-0 pt-0">By activating this now selected students can able to view this exam in their Dashboard. You Can Change this setting later.</small>
+                                    
+                                    <input type="checkbox" id="activate_toggle" data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger" data-width="100">
+                                </div>
+                                </div>
 
+
+
+
+
+                                    
+                                    
+                                </div>
+                            </div>
+                            <div class="container-fluid m-0 p-0" id="button_control_enrollment" style="display:none">
+                                <hr style="border: 1px solid grey">
+                                <button class="btn btn-danger float-left mb-3" id="back_enrollment" type="button">Back
+                                </button>
+                                <button class="btn btn-success float-right mb-3" type="button" id="submit_form">Submit
+                                </button>
+                            </div>
                         </form>
                     </div>
 
@@ -444,8 +294,16 @@ include '../config.php';
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src=" https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js" crossorigin="anonymous">
     </script>
+    <script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+  crossorigin="anonymous"></script>
     <script src="js/datatables-demo.js"></script>
+    <script src="js/simTree.js"></script>
+    <script src="js/treeCheckBox.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     <script src="./js/create_exam.js"></script>
+    
 </body>
 
 </html>
