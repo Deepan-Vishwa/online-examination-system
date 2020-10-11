@@ -22,10 +22,11 @@ include '../config.php';
     <link rel="stylesheet" href="css/simTree.css">
 
     <script src="https://kit.fontawesome.com/57c22c66dc.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
+        rel="stylesheet">
 
-    
-    
+
+
 
 </head>
 
@@ -59,16 +60,12 @@ include '../config.php';
                             </div>
                             Dashboard
                         </a>
-                        <a class="nav-link pb-1" href="#">
+                        <a class="nav-link pb-1 active" href="#">
                             <div class="sb-nav-link-icon"><i class="fas fa-plus"></i>
                             </div>
                             Create Exam
                         </a>
-                        <a class="nav-link pb-1" href="#">
-                            <div class="sb-nav-link-icon"><i class="fas fa-redo"></i>
-                            </div>
-                            Re-Exam
-                        </a>
+                        
                         <a class="nav-link pb-1" href="#">
                             <div class="sb-nav-link-icon"><i class="fas fa-poll"></i>
                             </div>
@@ -129,12 +126,23 @@ include '../config.php';
                                         <label for="start_date">Start Date & Time</label>
                                         <input type="datetime-local" class="form-control" id="start_date"
                                             name="start_date" required>
+                                        <script>
+                                        // var today = new Date().toISOString();
+                                        // document.getElementById("start_date").min = today.slice(0,19);
+                                        </script>
 
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="end_date">End Date & Time</label>
-                                        <input type="datetime-local" class="form-control" id="end_date" name="end_date"
-                                            required>
+                                        <input type="datetime-local" class="form-control" onfocus="enddate()"
+                                            id="end_date" name="end_date" required>
+
+                                        <script>
+                                        function enddate() {
+                                            var sd = document.getElementById("start_date").value;
+                                            document.getElementById("end_date").min = sd;
+                                        }
+                                        </script>
 
                                     </div>
                                 </div>
@@ -175,7 +183,7 @@ include '../config.php';
 
                             <div class="container-fluid m-0 p-0" id="prepare_questions" style="display: none;">
                                 <h4>Prepare Questions</h4>
-                               
+
 
                             </div>
                             <div class="container-fluid m-0 p-0" id="button_control" style="display: none;">
@@ -190,24 +198,29 @@ include '../config.php';
                                     Enrollment
                                 </h4>
                                 <div class="container-fluid m-0 p-0">
-                                <div class="card">
-                                <div class="card-body">
-                                    <h6 class="card-title">Select the Students Set</h6>
-                                    <div id="tree"></div>
-                
-                                    <h6 class="card-title pb-0 mb-0">Do You want To Activate this Exam Now ?</h6>
-                                    <small class="form-text text-muted pb-2 mt-0 pt-0">By activating this now selected students can able to view this exam in their Dashboard. You Can Change this setting later.</small>
-                                    
-                                    <input type="checkbox" id="activate_toggle" data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger" data-width="100">
-                                </div>
-                                </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h6 class="card-title">Select the Students Set</h6>
+                                            <div id="tree"></div>
+
+                                            <h6 class="card-title pb-0 mb-0">Do You want To Activate this Exam Now ?
+                                            </h6>
+                                            <small class="form-text text-muted pb-2 mt-0 pt-0">By activating this now
+                                                selected students can able to view this exam in their Dashboard. You Can
+                                                Change this setting later.</small>
+
+                                            <input type="checkbox" id="activate_toggle" data-toggle="toggle"
+                                                data-on="Active" data-off="Inactive" data-onstyle="success"
+                                                data-offstyle="danger" data-width="100">
+                                        </div>
+                                    </div>
 
 
 
 
 
-                                    
-                                    
+
+
                                 </div>
                             </div>
                             <div class="container-fluid m-0 p-0" id="button_control_enrollment" style="display:none">
@@ -285,6 +298,52 @@ include '../config.php';
 
         </div>
     </div>
+    <div class="modal fade" id="time_error" tabindex="-1" role="dialog" aria-labelledby="time_errorTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="time_errorLongTitle">End Time Not Valid</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    The Exam cannot be Ended before the Start Time. Please Enter a valid End time
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="submit_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="submit_modalTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="submit_modalLongTitle">Status</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center" >
+                <div id="status_text"></div>
+                   
+                   
+                    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status" id="status_spinner">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                   
+                </div>
+               
+                
+            </div>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
@@ -294,16 +353,14 @@ include '../config.php';
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src=" https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js" crossorigin="anonymous">
     </script>
-    <script
-  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
     <script src="js/datatables-demo.js"></script>
     <script src="js/simTree.js"></script>
     <script src="js/treeCheckBox.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     <script src="./js/create_exam.js"></script>
-    
+
 </body>
 
 </html>

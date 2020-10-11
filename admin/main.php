@@ -47,16 +47,12 @@ include '../config.php';
                                 </div>
                                 Dashboard
                             </a>
-                            <a class="nav-link pb-1" href="#">
+                            <a class="nav-link pb-1" href="create_exam.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-plus"></i>
                                 </div>
                                 Create Exam
                             </a>
-                            <a class="nav-link pb-1" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-redo"></i>
-                                </div>
-                                Re-Exam
-                            </a>
+                           
                             <a class="nav-link pb-1" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-poll"></i>
                                 </div>

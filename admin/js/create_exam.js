@@ -59,7 +59,11 @@ $(document).ready(function () {
     mark_per_answer = $("#marks_per_answer").val().trim();
     passing_mark = $("#passing_mark").val().trim();
     exam_code = $("#exam_code").val().trim();
-
+    if(new Date(start_date) > new Date(end_date)){
+      $('#time_error').modal('show')
+      console.log("time error");
+      return;
+    }
     if (
       exam_title != "" &&
       start_date != "" &&
@@ -67,8 +71,9 @@ $(document).ready(function () {
       no_of_questions != "" &&
       mark_per_answer != "" &&
       passing_mark != "" &&
-      exam_code != ""
+      exam_code != "" 
     ) {
+      //condition 
       $("#exam_details_form").removeClass("was-validated");
 
       $('#exam_details, #exam_table').hide("slide", {
@@ -178,13 +183,43 @@ $(document).ready(function () {
   var questions = [];
   var options = [];
   var status = "inactive";
+  var enrollment = [];
+var enroll = [];
+        var tree = simTree({
+            el: '#tree',
+            data: list,
+            check: true,
+            linkParent: true,
+            //check: true,
+            onClick: function (item) {
+                
+                enrollment = item;
+                console.log(enrollment);
+                enroll = [];
+               
+        for (let i = 0; i < enrollment.length; i++) {
+            if (enrollment[i].id > 10) {
+                enroll.push(enrollment[i]);
+            }
+        }
+        console.log(enroll);
+            }
+            
+        });
   $(document).on("click", "#submit_form", function () {
+    questions = [];
+    options = [];
+    //loading start show
+    $('#status_text').html('<h5>Please wait for the process to be Completed.<h5>');
+    $('#status_spinner').show();
+    $('#submit_modal').modal('show');
     var exam_details_unindexed_array = $("#exam_details_form").serializeArray();
     
     if($("#activate_toggle").prop("checked") == true){
       status = "active"
 
     }
+    if(enroll.length !== 0 ){
     $.map(exam_details_unindexed_array, function (n, i) {
       if (i < 7) {
         exam_details[n["name"]] = n["value"];
@@ -192,6 +227,10 @@ $(document).ready(function () {
     });
     console.log(exam_details);
     get_questions();
+  }
+  else{
+    console.log("plz select check box");
+  }
   });
 
 
@@ -260,6 +299,8 @@ $(document).ready(function () {
   }
 
   function send_to_php() {
+
+    
     $.ajax({
       url: "insert_exam.php",
       type: "POST",
@@ -267,10 +308,19 @@ $(document).ready(function () {
         exam_details: JSON.stringify(exam_details),
         questions: JSON.stringify(questions),
         options: JSON.stringify(options),
+        status: status,
+        enroll: JSON.stringify(enroll)
       },
       success: function (dataResult) {
-        console.log(dataResult);
+        $('#status_spinner').hide();
+        
+      
+       
+
+        $('#status_text').html(dataResult);
+       
       },
     });
+    
   }
 });

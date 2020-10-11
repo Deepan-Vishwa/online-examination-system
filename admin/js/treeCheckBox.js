@@ -58,16 +58,27 @@ var list = [{
 
 ];
 
-var enrollment = [];
-        var tree = simTree({
-            el: '#tree',
-            data: list,
-            check: true,
-            linkParent: true,
-            //check: true,
-            onClick: function (item) {
-                enrollment = item;
-                console.log(enrollment);
-            }
+// var enrollment = [];
+// let enroll = [];
+//         var tree = simTree({
+//             el: '#tree',
+//             data: list,
+//             check: true,
+//             linkParent: true,
+//             //check: true,
+//             onClick: function (item) {
+                
+//                 enrollment = item;
+//                 console.log(enrollment);
+               
+//         for (let i = 0; i < enrollment.length; i++) {
+//             if (enrollment[i].id > 10) {
+//                 enroll.push(enrollment[i]);
+//             }
+//         }
+//         console.log(enroll);
+//             }
             
-        });
+//         });
+
+        
