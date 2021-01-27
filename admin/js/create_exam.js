@@ -54,6 +54,7 @@ $(document).ready(function () {
   $("#exam_details_next").click(function () {
     exam_title = $("#exam_title").val().trim();
     start_date = $("#start_date").val().trim();
+    console.log(start_date);
     end_date = $("#end_date").val().trim();
     no_of_questions = $("#no_of_questions").val().trim();
     mark_per_answer = $("#marks_per_answer").val().trim();

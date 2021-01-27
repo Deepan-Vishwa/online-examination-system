@@ -7,4 +7,14 @@ $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
          if(! $conn ) {
             die("Could not connect: " . mysqli_error());
          }
+
+         // $dbhost = 'localhost';
+         // $dbuser = 'root';
+         // $dbpass = '';
+         // $dbname = 'bmdi4t1u7guqjyytsjzn';
+         // $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+         //          if(! $conn ) {
+         //             die("Could not connect: " . mysqli_error());
+         //          }
+
 ?>
