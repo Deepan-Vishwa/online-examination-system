@@ -1,4 +1,5 @@
 <?php
+session_start();
 extract($_POST);
 include '../config.php';
 $exam = json_decode($exam_details, true);

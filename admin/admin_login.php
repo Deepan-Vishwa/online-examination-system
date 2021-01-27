@@ -1,4 +1,5 @@
 <?php
+session_start();
 extract($_POST);
 include '../config.php';
 $stmt = $conn->prepare("SELECT * FROM `admin` WHERE admin_email = ? AND admin_pass = ?");
