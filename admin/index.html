@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/3535cd8d33.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <title>Online Examination System - Login</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbarbg " id="nav">
+           <a class="navbar-brand" href="main.php">KDSG Admin</a>
+           
+            
+          </nav>
+    </header>
+<div class="container mt-3 d-flex justify-content-center align-items-center">
+    <h1 class="h1title animation a2" id="title">KDSG Examination System</h1>
+</div>
+        <div class="container formcontainer" >
+         <h1 style="color: darkblue; font-weight: 600;" class="animation a3">Admin Login</h1>
+         <form action="loginval.php" method="post" id="loginform">
+
+          <div class="alert alert-red collapse" id="alert" name="alert" aria-hidden="true">
+            
+          </div>
+         
+            <div class="form-group">
+              <input type="email" class="form-control animation a4" id="emailid" name="emailid" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control  animation a5" id="password" name="password" placeholder="Password">
+            </div>
+                <button type="button" class="btn navbarbg text-white w-100 animation a6 hover" name="submit" id="btnFetch">Login</button>
+                
+          </form>
+        </div>
+        <script src="./js/login.js"></script>
+
+</body>
+</html>

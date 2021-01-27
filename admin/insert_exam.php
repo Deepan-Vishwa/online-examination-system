@@ -7,7 +7,7 @@ $options_data = json_decode($options, true);
 $enroll_data = json_decode($enroll, true);
 date_default_timezone_set('Asia/Kolkata');
 $exam_created_on = date("Y-m-d H:i:s");
-$admin_id = 1;
+$admin_id = $_SESSION['adminid'];
 $start_time = str_replace("T", " ", $exam["start_date"]);
 $end_time = str_replace("T", " ", $exam["end_date"]);
 

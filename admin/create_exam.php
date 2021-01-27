@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+
+if (!isset($_SESSION["adminid"])) {
+    header('Location: index.html');
+    exit();
+}
 extract($_POST);
 date_default_timezone_set('Asia/Kolkata');
 include '../config.php';
@@ -32,7 +40,7 @@ include '../config.php';
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="background-color: #1a1a49 !important;">
-        <a class="navbar-brand" href="index.html">KDSG Admin</a>
+        <a class="navbar-brand" href="main.php">KDSG Admin</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
                 class="fas fa-bars"></i></button>
 
@@ -43,7 +51,7 @@ include '../config.php';
                     aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 
-                    <a class="dropdown-item" href="login.html">Logout</a>
+                    <a class="dropdown-item" href="logout.php">Logout</a>
 
             </li>
         </ul>
@@ -60,44 +68,50 @@ include '../config.php';
                             </div>
                             Dashboard
                         </a>
-                        <a class="nav-link pb-1 active" href="#">
+                        <a class="nav-link pb-1 active" href="create_exam.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-plus"></i>
                             </div>
                             Create Exam
                         </a>
                         
-                        <a class="nav-link pb-1" href="#">
+                        <a class="nav-link pb-1" href="view_result.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-poll"></i>
                             </div>
                             View Result
                         </a>
                         <div class="sb-sidenav-menu-heading pb-0">Control</div>
-                        <a class="nav-link pb-1" href="#">
+                        <a class="nav-link pb-1" href="exam_edit.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-pencil-ruler"></i>
                             </div>
                             Exams
                         </a>
-                        <a class="nav-link pb-1" href="#">
-                            <div class="sb-nav-link-icon"><i class="fas fa-user-graduate"></i>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsestudents" aria-expanded="false" aria-controls="collapsestudents"
+                                ><div class="sb-nav-link-icon"><i class="fas fa-user-graduate"></i></div>
+                                Students
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
+                            ></a>
+                            <div class="collapse" id="collapsestudents" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="student.php">Students Record</a>
+                                    <a class="nav-link" href="fresher_data_entry.php">Freshers Data Entry</a></nav>
                             </div>
-                            Students
-                        </a>
-                        <a class="nav-link pb-1" href="#">
-                            <div class="sb-nav-link-icon"><i class="fas fa-poll"></i>
-                            </div>
-                            Results
-                        </a>
-                        <a class="nav-link pb-1" href="#">
+                        
+                        <a class="nav-link pb-1" href="attendance.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-list"></i>
                             </div>
                             Attendance
                         </a>
+                        <a class="nav-link pb-1" href="admin.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i>
+                                </div>
+                             Admin
+                            </a>
 
                     </div>
                 </div>
                 <div class="sb-sidenav-footer" style="background-color: #040432;">
                     <div class="small">Logged in as:</div>
-                    Deepan Vishwa
+                    <?php echo $_SESSION['adminname']; ?>
                 </div>
             </nav>
         </div>
@@ -127,8 +141,8 @@ include '../config.php';
                                         <input type="datetime-local" class="form-control" id="start_date"
                                             name="start_date" required>
                                         <script>
-                                        // var today = new Date().toISOString();
-                                        // document.getElementById("start_date").min = today.slice(0,19);
+                                        var today = new Date().toISOString();
+                                        document.getElementById("start_date").min = today.slice(0,19);
                                         </script>
 
                                     </div>
