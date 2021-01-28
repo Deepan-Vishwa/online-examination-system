@@ -314,7 +314,7 @@ function result_val(){
         var opt = '';
         for(i = 0; i<questions[question_number].options.length; i++){
             opt += 
-             ` <div class="custom-control custom-radio">
+             ` <div class="custom-control custom-radio mb-4">
                 <input type="radio" id="rbtn${i}" name="Radio-${question_number}" class="custom-control-input" value =${i}>
                     <label class="custom-control-label" for="rbtn${i}">${questions[question_number].options[i]}</label>
                 </div>`;

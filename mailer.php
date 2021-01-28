@@ -4,9 +4,22 @@ include 'mail_sender.php';
 extract($_POST);
 session_start();
 
+
+$get_email_query = "SELECT admin_email,admin_name from admin";
+
+$get_email_query_result = mysqli_query($conn,$get_email_query);
+
+
         if($action == "login_mail"){
 
-            $mail->addAddress('srdeepansr@gmail.com', 'Deepan');
+            while($row = mysqli_fetch_assoc($get_email_query_result)){
+
+                $mail->addCC($row['admin_email'], $row['admin_name']);
+
+            }
+
+            
+           
             $mail->Subject = "Login Help";
             $mail->Body =
          '
@@ -70,7 +83,12 @@ session_start();
         }
         
 
-        $mail->addAddress('srdeepansr@gmail.com', 'Deepan');
+        while($row = mysqli_fetch_assoc($get_email_query_result)){
+
+            $mail->addCC($row['admin_email'], $row['admin_name']);
+
+        }
+       
         $mail->Subject =  "Student Help Request";
         $mail->Body =
          '
