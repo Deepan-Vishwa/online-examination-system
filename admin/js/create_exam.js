@@ -34,7 +34,7 @@ function render_questions() {
                 <label class="input-group-text">Answer</label>
             </div>
             <select class="custom-select select_answer" name="answer" required>
-
+              <option value="">Choose answer</option>
             </select>
         </div>
     </div>
@@ -102,17 +102,17 @@ $(document).ready(function () {
   
   $("#next_question").click(function () {
     
-    var notempty = "yes";
+    var notempty = true;
     $("#prepare_questions").find("textarea, :text, select").each(function(){
 
       if($(this).val()==""){
-        notempty = "no";
+        notempty = false;
         
       }
     });
     console.log(notempty);
 
-    if(notempty == "yes"){
+    if(notempty){
      
       $('#prepare_questions, #button_control').hide("slide", {
         direction: "left"
@@ -121,7 +121,7 @@ $(document).ready(function () {
         direction: "right"
     }, 700);
     }
-    else if(notempty == "no"){
+    else{
       $("#exam_details_form").addClass("was-validated");
     }
 
