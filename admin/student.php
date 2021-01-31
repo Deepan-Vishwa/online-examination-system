@@ -381,8 +381,8 @@ $(document).ready(function() {
                         <div class="row">
                             <div class="col-sm-12">
                                 <label>Email :</label>
-                                <input type="text" name="student_email" id="student_email"
-                                    class="form-control required"required>
+                                <input type="email" name="student_email" id="student_email"
+                                    class="form-control required" required>
                             </div>
                         </div>
                     </div>
@@ -401,7 +401,7 @@ $(document).ready(function() {
                                 <label>Section :</label>
                                 <div class="input-group mb-3">
                                     <select class="custom-select required" name="student_section" id="student_section" required>
-                                        <option selected>Choose...</option>
+                                        <option Value="" selected>Choose...</option>
                                         <option value="A">A</option>
                                         <option value="B">B</option>
                                         <option value="C">C</option>
@@ -417,7 +417,7 @@ $(document).ready(function() {
                                 <label>Year :</label>
                                 <div class="input-group mb-3">
                                     <select class="custom-select required" name="student_year" id="student_year" required>
-                                        <option selected>Choose...</option>
+                                        <option value="" selected>Choose...</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -440,8 +440,8 @@ $(document).ready(function() {
                         <div class="row">
                             <div class="col-sm-12">
                                 <label>Parent Number :</label>
-                                <input type="number" name="parent_number" id="parent_number"
-                                    class="form-control required number" required>
+                                <input type="tel" name="parent_number" id="parent_number"
+                                    class="form-control required number" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
                             </div>
                         </div>
                     </div>
@@ -449,8 +449,8 @@ $(document).ready(function() {
                         <div class="row">
                             <div class="col-sm-12">
                                 <label>Student Number :</label>
-                                <input type="number" name="student_number" id="student_number"
-                                    class="form-control required number" required>
+                                <input type="tel" name="student_number" id="student_number"
+                                    class="form-control required number" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
                             </div>
                         </div>
                     </div>
