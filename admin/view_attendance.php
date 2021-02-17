@@ -87,9 +87,10 @@ $html .= "
     $query_get_attendance = "SELECT students.student_id,students.student_name,students.student_section,students.student_year,online_exam.online_exam_title,online_exam.online_exam_datetime,
     DATE_FORMAT(attendance.time_stamp,'%d-%m-%Y %h:%i %p') AS entry_time ,
     (CASE 
-      WHEN online_exam.online_exam_datetime > '".$curent_time."' THEN 'Pending' 
-     WHEN attendance.attendance_id IS NULL AND online_exam.online_exam_datetime < '".$curent_time."'  THEN 'Absent' 
-     ELSE 'Present' 
+      WHEN attendance.time_stamp IS NULL AND online_exam.end_time < '".$curent_time."'  THEN 'Absent' 
+      WHEN online_exam.end_time > '".$curent_time."' AND attendance.time_stamp is NULL THEN 'Pending'
+    
+     WHEN attendance.attendance_id IS NOT NULL THEN 'Present' 
      END) as status
     from students INNER JOIN exam_enrollment on
      students.student_section = exam_enrollment.section AND 
