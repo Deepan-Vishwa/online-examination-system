@@ -10,7 +10,8 @@ $get_email_query = "SELECT admin_email,admin_name from admin";
 $get_email_query_result = mysqli_query($conn,$get_email_query);
 
 
-        if($action == "login_mail"){
+        // For Login Mail Requested by help_mailer.js
+        if($action == "login_mail"){ 
 
             while($row = mysqli_fetch_assoc($get_email_query_result)){
 
@@ -69,6 +70,8 @@ $get_email_query_result = mysqli_query($conn,$get_email_query);
         }
         
         }
+
+        // For Main Mail Requested by help_mailer.js
 
     if($action == "main_mail"){
 

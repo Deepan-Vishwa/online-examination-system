@@ -1,4 +1,9 @@
+
+
 <?php
+
+//Mark Attendance 
+
 session_start();
 extract($_POST);
 include 'config.php';

@@ -1,4 +1,10 @@
-<?php 
+<?php
+
+/*
+Requested By Test.js
+Sends Question And Options For UI Rendering
+*/
+
 extract($_POST);
 session_start();
 include 'config.php';
@@ -31,5 +37,7 @@ while ($row_options = mysqli_fetch_assoc($options_query_result))
            $ques++;
        }
    echo (json_encode($final));
+
+   
     
 ?>

@@ -14,60 +14,72 @@ $current = date("Y-m-d H:i:s");
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://kit.fontawesome.com/57c22c66dc.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
 
     <title>Online Examination System - Login</title>
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark navbarbg " id="nav">
-           <a class="navbar-brand"  href="main.php">KDSG</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand" href="main.php">KDSG</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="main.php">Home<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="instruction.html">Instruction</a>
-              </li>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="main.php">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="instruction.html">Instruction</a>
+                    </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link" href="result.php">Results</a>
-                  </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="result.php">Results</a>
+                    </li>
 
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Account</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style=" min-width: 9rem !important;">
-                   <a class="dropdown-item" href="profile.php"> <i class="fa fa-user" aria-hidden="true"></i> Profile</a>
-                   <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
-                   
-                  </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Account</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"
+                            style=" min-width: 9rem !important;">
+                            <a class="dropdown-item" href="profile.php"> <i class="fa fa-user" aria-hidden="true"></i>
+                                Profile</a>
+                            <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                                Logout</a>
 
-                <li class="nav-item">
-                  <a class="nav-link" href="help-main.html">Help</a>
-                </li>
-              </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="help-main.html">Help</a>
+                    </li>
+                </ul>
             </div>
-          </nav>
+        </nav>
     </header>
     <div class="container mt-3 d-flex justify-content-center align-items-center">
         <h1 class="h1title animation a2" id="title">KDSG Examination System</h1>
     </div>
     <div class="container mt-5">
-    
-    <?php
+
+        <?php
 
 
 $query = 
@@ -108,41 +120,51 @@ while($row = mysqli_fetch_assoc($result))
          echo "<div class='card m-3 border border-primary animation shadow-lg bg-white' style = '-webkit-animation-delay:".$i."s';
             animation-delay:".$i.";>";
             ?>
-            <div class="card-header d-flex justify-content-between align-items-center cardheaderbg text-white">
-              <h6 class="fontsize">
-               <strong>Subject: </strong><?php echo $row['online_exam_title'];?>
-              </h6>
-              <h6 class="fontsize">
+        <div class="card-header d-flex justify-content-between align-items-center cardheaderbg text-white">
+            <h6 class="fontsize">
+                <strong>Subject: </strong><?php echo $row['online_exam_title'];?>
+            </h6>
+            <h6 class="fontsize">
                 <strong>Date: </strong><?php echo $row['date'];?>
-              </h6>
-            </div>
-            <div class="card-body">
+            </h6>
+        </div>
+        <div class="card-body">
 
-                <div class="container">
-                    <div class="row">
-                      <div class="col-sm">
-                      <p><strong style="color: darkblue;">Total No Of Questions: </strong><?php echo $row['total_questions'];?></p>
-                      <p><strong style="color: darkblue;">Marks Per Right Answer: </strong> <?php echo $row['marks_per_right_answer'];?></p>
-                      </div>
-                      <div class="col-sm border-darkblue">
-                        <p><strong style="color: darkblue;">Passing Score: </strong> <?php echo $row['passing_score'];?></p>
-                        <p><strong style="color: darkblue;">Maximum marks: </strong> <?php echo $row['maximum_marks'];?></p>
-                      </div>
-                      <div class="col-sm border-darkblue">
-                        <p><strong style="color: darkblue;">Starting Time: </strong> <?php echo $row['starting_time'];?></p>
-                        <p><strong style="color: darkblue;">Ending Time: </strong><?php echo $row['ending_time'];?></p>
-                      </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <p><strong style="color: darkblue;">Total No Of Questions:
+                            </strong><?php echo $row['total_questions'];?>
+                        </p>
+                        <p><strong style="color: darkblue;">Marks Per Right Answer: </strong>
+                            <?php echo $row['marks_per_right_answer'];?></p>
                     </div>
-                  </div>
-                   
-       
-                  <div class="container mt-3 d-flex justify-content-center align-items-center">
-                    <button style="display:none;"  class="btn cardheaderbg text-white mt-2 float-right startbtn" data-online_exam_id ="<?php echo $row['online_exam_id'];?>"  id="main_start-<?php echo $row['online_exam_id'];?>">Start</button>
-                    <p class="text-center" data-btnid="main_start-<?php echo $row['online_exam_id'];?>" data-countdown="<?php echo $row['online_exam_datetime']; ?>" id="start_timer_<?php echo $row['online_exam_id'];?>"></p>
+                    <div class="col-sm border-darkblue">
+                        <p><strong style="color: darkblue;">Passing Score: </strong> <?php echo $row['passing_score'];?>
+                        </p>
+                        <p><strong style="color: darkblue;">Maximum marks: </strong> <?php echo $row['maximum_marks'];?>
+                        </p>
+                    </div>
+                    <div class="col-sm border-darkblue">
+                        <p><strong style="color: darkblue;">Starting Time: </strong> <?php echo $row['starting_time'];?>
+                        </p>
+                        <p><strong style="color: darkblue;">Ending Time: </strong><?php echo $row['ending_time'];?></p>
+                    </div>
                 </div>
             </div>
-          </div>
-          <?php
+
+
+            <div class="container mt-3 d-flex justify-content-center align-items-center">
+                <button style="display:none;" class="btn cardheaderbg text-white mt-2 float-right startbtn"
+                    data-online_exam_id="<?php echo $row['online_exam_id'];?>"
+                    id="main_start-<?php echo $row['online_exam_id'];?>">Start</button>
+                <p class="text-center" data-btnid="main_start-<?php echo $row['online_exam_id'];?>"
+                    data-countdown="<?php echo $row['online_exam_datetime']; ?>"
+                    id="start_timer_<?php echo $row['online_exam_id'];?>"></p>
+            </div>
+        </div>
+    </div>
+    <?php
          $i = $i+0.1;
 
         }
@@ -150,31 +172,33 @@ while($row = mysqli_fetch_assoc($result))
       
         
         ?>
-          
-    </div> 
 
-    <div class="modal fade" id="alert-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    </div>
+
+    <div class="modal fade" id="alert-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Alert</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Alert</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Sorry You cannot Attend Your exam in Mobile !!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn navbarbg text-white" data-dismiss="modal">Understood</button>
+
+                </div>
             </div>
-            <div class="modal-body">
-             Sorry You cannot Attend Your exam in Mobile !!
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn navbarbg text-white" data-dismiss="modal">Understood</button>
-             
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
     <script src="./js/main.js"></script>
 
 </body>
+
 </html>
 <?php
 if(isset($_SESSION["attendance"])){
@@ -209,5 +233,3 @@ if(isset($_POST["online_exam_id"])){
 
 
           ?>
-
-        

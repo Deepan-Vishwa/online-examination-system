@@ -4,13 +4,13 @@ session_start();
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
-if (!isset($_SESSION["userid"]) && !isset($_SESSION["end_time"]) &&  !isset($_SESSION["start_time"]) ) {
+if (!isset($_SESSION["userid"]) && !isset($_SESSION["end_time"]) &&  !isset($_SESSION["start_time"]) ) { // Validates session
   
-  header('Location: index.html');
+  header('Location: index.html'); // Redirects to Login Page
   exit();
 }
-if(isset($_SESSION["attendance"])){
-  header('Location:  main.php');
+if(isset($_SESSION["attendance"])){ // If attendance marked Already
+  header('Location:  main.php'); // Redirects to Main Page
   exit();
 }
 
@@ -21,7 +21,7 @@ $current = strtotime(date("Y-m-d H:i:s"));
 $start =   strtotime($_SESSION["start_time"]);
 $end = strtotime($_SESSION["end_time"]);
 
-  if($start > $current || $current > $end){
+  if($start > $current || $current > $end){ // Validates Entry Time (For Security Reasons)
     header('Location: main.php');
     exit();
   } 
@@ -181,6 +181,7 @@ $end = strtotime($_SESSION["end_time"]);
       
     </div>
 
+    <!-- malpractice Modal -->
     <div class="modal fade " id="cheat_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -206,6 +207,7 @@ $end = strtotime($_SESSION["end_time"]);
             </div>
           </div>
           
+          <!-- submission Confirmation Modal -->
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
