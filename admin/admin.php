@@ -144,6 +144,7 @@ include '../config.php';
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Password</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
 
@@ -158,7 +159,7 @@ include '../config.php';
                                             ?>
 
                                 <tr>
-
+                                     <td><?php echo $row['admin_id']; ?></td>
                                     <td><?php echo $row['admin_name']; ?></td>
                                     <td><?php echo $row['admin_email']; ?></td>
                                     <td><?php echo $row['admin_pass']; ?></td>
