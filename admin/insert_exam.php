@@ -16,7 +16,7 @@ $end_time = str_replace("T", " ", $exam["end_date"]);
 //condition for time
 $time_conflict_query = "
 
-SELECT test.online_exam_title,DATE_FORMAT(`online_exam_datetime`, '%d-%m-%Y') as date,
+SELECT test.online_exam_title,exam_enrollment.section,exam_enrollment.year,DATE_FORMAT(`online_exam_datetime`, '%d-%m-%Y') as date,
 DATE_FORMAT(`online_exam_datetime`,'%h:%i %p') as starting_time,
 DATE_FORMAT(`end_time`,'%h:%i %p') as ending_time,exam_enrollment.* from ( 
 
@@ -54,6 +54,8 @@ DATE_FORMAT(`end_time`,'%h:%i %p') as ending_time,exam_enrollment.* from (
             <table class="table table-sm table-light">
               <thead>
                 <tr>
+                <th scope="col">Year</th>
+                <th scope="col">Section</th>
                   <th scope="col">Subject</th>
                   <th scope="col">Date</th>
                   <th scope="col">Time</th>
@@ -63,6 +65,8 @@ DATE_FORMAT(`end_time`,'%h:%i %p') as ending_time,exam_enrollment.* from (
       while($row = mysqli_fetch_assoc($time_conflict_result)){
             $conflict_error .= ' 
             <tr>
+            <td>'.$row['section'].'</td>
+            <td>'.$row['year'].'</td>
             <td>'.$row['online_exam_title'].'</td>
             <td>'.$row['date'].'</td>
             <td>'.$row['starting_time'].' to '.$row['ending_time'].'</td>
