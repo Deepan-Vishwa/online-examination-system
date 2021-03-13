@@ -141,7 +141,7 @@ include '../config.php';
                                         <input type="datetime-local" class="form-control" id="start_date"
                                             name="start_date" required>
                                         <script>
-                                        var today = new Date().toISOString();
+                                        var today = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString();;
                                         document.getElementById("start_date").min = today.slice(0,19);
                                         </script>
 
