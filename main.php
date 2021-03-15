@@ -104,7 +104,7 @@ if(mysqli_num_rows($result)===0)
   echo'<p class="text-center  animation a3 " style="margin-top:5%"><img class="image" src="./assets/logo_transparent.png"></img></p>';
   echo'<h1 class=" norecords text-center  animation a4 ">
   
-  No Exams Alloted For You !!!!!
+  No Exams Allotted For You !!!!!
 
 </h1>';
   
